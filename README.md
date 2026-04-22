@@ -55,7 +55,7 @@ Clone the repository and install dependencies:
 
 ```
 git clone https://github.com/BelalH/kafu-people-pages
-cd kafupeople
+cd kafu-people-pages
 npm install
 ```
 
