@@ -46,7 +46,7 @@ const App = () => {
     return <Loader />;
   }
   return (
-    <Router basename="/kafu-people-pages">
+    <Router>
       <Header />
       <Routes>
         <Route path="/login" element={<Login />} />
