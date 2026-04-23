@@ -70,20 +70,6 @@ const ContactSection = () => {
             <p className="text-[#C2ABB9]">Amsterdam, NL</p>
           </div>
           <div className="mb-4">
-            <a
-              href="https://www.linkedin.com/company/kafu-people/"
-              className="text-[#C2ABB9]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <p className="text-cWhite flex items-center justify-center md:justify-start">
-                <FaLinkedin className="mr-2" />
-                LinkedIn:
-              </p>
-              Kafu People
-            </a>
-          </div>
-          <div className="mb-4">
             <PopupButton
               url="https://calendly.com/vulh91"
               rootElement={document.getElementById("root")}
