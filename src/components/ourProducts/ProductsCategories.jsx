@@ -13,14 +13,14 @@ const categories = [
 ];
 
 const allProducts = [
-  {
-    "product_id": "p001",
-    "image": "/products/Agent Zero.png",
-    "name": "Agent Zero",
-    "description": "An autonomous AI agent that runs in a secure virtual computer, capable of writing code, executing commands, browsing the web, and creating its own tools to complete complex tasks. It operates as a self-improving system that breaks down goals, runs multi-step workflows, and adapts its behavior based on results.",
-    "category": "AI & Agentic Workflows",
-    "url": "https://agent-zero.ai"
-  },
+  // {
+  //   "product_id": "p001",
+  //   "image": "/products/Agent Zero.png",
+  //   "name": "Agent Zero",
+  //   "description": "An autonomous AI agent that runs in a secure virtual computer, capable of writing code, executing commands, browsing the web, and creating its own tools to complete complex tasks. It operates as a self-improving system that breaks down goals, runs multi-step workflows, and adapts its behavior based on results.",
+  //   "category": "AI & Agentic Workflows",
+  //   "url": "https://agent-zero.ai"
+  // },
   {
     "product_id": "p002",
     "image": "/products/Dustai.png",
@@ -61,14 +61,14 @@ const allProducts = [
     "category": "SaaS & Startup MVPs",
     "url": "https://dub.co"
   },
-  // {
-  //   "product_id": "p007",
-  //   "image": "/products/WAX AI Agent Toolkit.png",
-  //   "name": "WAX AI Agent Toolkit",
-  //   "description": "This is a TypeScript toolkit that combines LangChain with WAX blockchain capabilities, creating an AI-powered agent that can interact with the WAX blockchain.",
-  //   "category": "AI & Agentic Workflows",
-  //   "url": "https://github.com/Sentnl/wax-ai-agent-toolkit"
-  // },
+  {
+    "product_id": "p007",
+    "image": "/products/Echo3s.png",
+    "name": "Echo3s",
+    "description": "Empowering independent authors and production companies to create professional audiobooks with cutting-edge AI voice technology.",
+    "category": "AI & Agentic Workflows",
+    "url": "https://echo3s.io/"
+  },
   {
     "product_id": "p008",
     "image": "/products/RadarOmega Cams.png",
