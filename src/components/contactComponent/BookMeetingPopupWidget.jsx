@@ -1,6 +1,29 @@
+/* eslint-disable react/prop-types -- props passed from parent forms */
 import { PopupWidget } from "react-calendly";
+import { useCookieConsent } from "../../context/useCookieConsent";
+import CookieFeatureFallback from "../cookies/CookieFeatureFallback";
 
 export default function BookMeetingPopupWidget({ user, calenly }) {
+  const { hydrated, allowFunctional } = useCookieConsent();
+
+  if (!hydrated) {
+    return (
+      <div
+        className="h-14 w-full max-w-xs animate-pulse rounded-lg bg-gray-200"
+        aria-hidden
+      />
+    );
+  }
+
+  if (!allowFunctional) {
+    return (
+      <CookieFeatureFallback
+        title="Scheduling is disabled"
+        description="Enable functional cookies to use the meeting scheduler."
+      />
+    );
+  }
+
   return (
     <PopupWidget
       branding

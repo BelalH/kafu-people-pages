@@ -1,12 +1,15 @@
-import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
 import form from "../assets/images/contactUs/form.png";
 import { PopupButton } from "react-calendly";
 
 import { FaWhatsappSquare, FaLinkedin } from "react-icons/fa";
+import { useCookieConsent } from "../context/useCookieConsent";
+import CookieFeatureFallback from "./cookies/CookieFeatureFallback";
 
 const ContactSection = () => {
+  const { hydrated, allowFunctional } = useCookieConsent();
+
   return (
     <div
       className="min-h-screen flex flex-col md:flex-row bg-gray-100 font-inter sm:px-8 lg:px-24 py-12"
@@ -70,25 +73,39 @@ const ContactSection = () => {
             <p className="text-[#C2ABB9]">Amsterdam, NL</p>
           </div>
           <div className="mb-4">
-            <PopupButton
-              url="https://calendly.com/vulh91"
-              rootElement={document.getElementById("root")}
-              branding
-              color="#00a2ff"
-              pageSettings={{
-                backgroundColor: "ffffff",
-                hideEventTypeDetails: false,
-                hideGdprBanner: true,
-                hideLandingPageDetails: false,
-                primaryColor: "00a2ff",
-                textColor: "4d5055",
-              }}
-              utm={{
-                utmSource: "Web",
-              }}
-              className="flex items-center gap-2 px-6 py-3 bg-[#2563EB] text-cWhite font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-300"
-              text="Book a Meeting!"
-            />
+            {!hydrated ? (
+              <div
+                className="mx-auto h-12 max-w-xs animate-pulse rounded-lg bg-cWhite/20 md:mx-0"
+                aria-hidden
+              />
+            ) : allowFunctional ? (
+              <PopupButton
+                url="https://calendly.com/vulh91"
+                rootElement={document.getElementById("root")}
+                branding
+                color="#00a2ff"
+                pageSettings={{
+                  backgroundColor: "ffffff",
+                  hideEventTypeDetails: false,
+                  hideGdprBanner: true,
+                  hideLandingPageDetails: false,
+                  primaryColor: "00a2ff",
+                  textColor: "4d5055",
+                }}
+                utm={{
+                  utmSource: "Web",
+                }}
+                className="flex items-center gap-2 px-6 py-3 bg-[#2563EB] text-cWhite font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-300"
+                text="Book a Meeting!"
+              />
+            ) : (
+              <CookieFeatureFallback
+                variant="dark"
+                title="Scheduling is disabled"
+                description="Meeting booking uses functional cookies. Enable them in Cookie Preferences, or reach us by email or phone above."
+                className="max-w-sm md:mx-0"
+              />
+            )}
           </div>
         </div>
       </div>

@@ -28,6 +28,9 @@ import RegistrationList from "./components/admin/RegistrationList";
 import AddBlog from "./components/admin/AddBlogs";
 import FileUpload from "./components/admin/FileUpload";
 import VerifyUser from "./components/admin/VerifyUser";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import { CookieConsentProvider } from "./context/CookieConsentProvider";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -47,13 +50,16 @@ const App = () => {
   }
   return (
     <Router>
-      <Header />
-      <Routes>
+      <CookieConsentProvider>
+        <Header />
+        <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/portfolio" element={<OurProducts />} />
 
         <Route path="/newsAndEvents" element={<NewsAndEvents />} />
@@ -73,8 +79,9 @@ const App = () => {
         <Route path="/verifyUser" element={<VerifyUser />} />
 
         <Route path="/registrationList" element={<RegistrationList />} />
-      </Routes>
-      <Footer />
+        </Routes>
+        <Footer />
+      </CookieConsentProvider>
     </Router>
   );
 };

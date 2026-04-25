@@ -1,4 +1,5 @@
-import React from "react";
+import { Link } from "react-router-dom";
+import { useCookieConsent } from "../context/useCookieConsent";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -8,13 +9,13 @@ import {
   FaBrain,
   FaCloud,
   FaLink,
-  FaCode,
-  FaTools,
 } from "react-icons/fa"; // Import icons
 import { FaWhatsapp, FaLinkedin } from "react-icons/fa"; // Import WhatsApp icon
 import footer from "../assets/images/footer.png";
 
 const Footer = () => {
+  const { openCustomize } = useCookieConsent();
+
   return (
     <footer
       className="text-cWhite py-8 font-inter"
@@ -157,14 +158,30 @@ const Footer = () => {
       {/* Footer Bottom */}
       <div className="border-t border-textGray text-textGray mt-8  pt-4 text-center text-sm">
         <p>KAFU PEOPLE Copyright © 2020. All rights reserved.</p>
-        <div className="mt-2 space-x-4">
-          <a href="#" className="hover:underline">
-            Terms of Services
-          </a>
-          <a href="#" className="hover:underline">
-            Privacy & Policy
-          </a>
-        </div>
+        <nav
+          className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
+          aria-label="Legal and cookie preferences"
+        >
+          <Link
+            to="/terms-of-service"
+            className="hover:underline hover:text-cWhite focus:outline-none focus-visible:ring-2 focus-visible:ring-CPurple rounded"
+          >
+            Terms of Service
+          </Link>
+          <Link
+            to="/privacy-policy"
+            className="hover:underline hover:text-cWhite focus:outline-none focus-visible:ring-2 focus-visible:ring-CPurple rounded"
+          >
+            Privacy Policy
+          </Link>
+          <button
+            type="button"
+            onClick={openCustomize}
+            className="hover:underline hover:text-cWhite focus:outline-none focus-visible:ring-2 focus-visible:ring-CPurple rounded bg-transparent border-0 cursor-pointer text-inherit font-inherit text-sm"
+          >
+            Cookie Preferences
+          </button>
+        </nav>
       </div>
     </footer>
   );
