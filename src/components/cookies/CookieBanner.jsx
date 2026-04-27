@@ -9,7 +9,7 @@ const CookieBanner = () => {
 
   return (
     <aside
-      className="fixed bottom-0 left-0 right-0 z-[100] font-inter border-t border-gray-200 bg-white shadow-[0_-4px_24px_rgba(0,0,0,0.08)]"
+      className="fixed bottom-0 left-0 right-0 z-[100] font-inter border-t border-textGray/20 bg-cWhite shadow-[0_-4px_24px_rgba(0,0,0,0.12)]"
       role="dialog"
       aria-modal="false"
       aria-labelledby="cookie-banner-title"
@@ -27,13 +27,13 @@ const CookieBanner = () => {
             <div>
               <h2
                 id="cookie-banner-title"
-                className="text-base font-bold text-gray-800 sm:text-lg"
+                className="text-base font-bold text-cBlack sm:text-lg"
               >
                 We value your privacy
               </h2>
               <p
                 id="cookie-banner-desc"
-                className="mt-2 text-sm leading-relaxed text-gray-600 sm:text-[15px]"
+                className="mt-2 text-sm leading-relaxed text-textGray sm:text-[15px]"
               >
                 {COOKIE_BODY}
               </p>
@@ -44,21 +44,21 @@ const CookieBanner = () => {
           <button
             type="button"
             onClick={acceptAll}
-            className="rounded-lg bg-[#33D6C5] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#2bc4b4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#33D6C5] focus-visible:ring-offset-2"
+            className="rounded-lg bg-[#33D6C5] px-4 py-2.5 text-sm font-semibold text-cWhite shadow-sm transition hover:bg-[#2bc4b4] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#33D6C5] focus-visible:ring-offset-2"
           >
             Accept all
           </button>
           <button
             type="button"
             onClick={rejectOptional}
-            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2"
+            className="rounded-lg border border-textGray/30 bg-cWhite px-4 py-2.5 text-sm font-semibold text-cBlack transition hover:bg-cgray focus:outline-none focus-visible:ring-2 focus-visible:ring-textGray focus-visible:ring-offset-2"
           >
             Reject All
           </button>
           <button
             type="button"
             onClick={openCustomize}
-            className="rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-800 transition hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2"
+            className="rounded-lg border border-textGray/30 bg-cWhite px-4 py-2.5 text-sm font-semibold text-cBlack transition hover:bg-cgray focus:outline-none focus-visible:ring-2 focus-visible:ring-textGray focus-visible:ring-offset-2"
           >
             Customize
           </button>
