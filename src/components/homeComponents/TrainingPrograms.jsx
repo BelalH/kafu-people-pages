@@ -26,7 +26,7 @@ const TrainingPrograms = () => {
           <img
             src={kafupeople}
             alt="KAFUPEOPLE Logo"
-            className="mx-auto mb-6 w-28 sm:w-32 md:w-36 max-w-[400px]"
+            className="mx-auto mb-6 h-auto w-[80%] max-w-[400px] object-contain"
           />
           <h4 className="text-xl md:text-2xl font-semibold text-cDarkBlue mb-2">
             Artificial Intelligence
@@ -46,7 +46,7 @@ const TrainingPrograms = () => {
           <img
             src={kafupeople}
             alt="KAFUPEOPLE Logo"
-            className="mx-auto mb-6 w-28 sm:w-32 md:w-36 max-w-[400px]"
+            className="mx-auto mb-6 h-auto w-[80%] max-w-[400px] object-contain"
           />
           <h4 className="text-xl md:text-2xl font-semibold text-cDarkBlue mb-2">
             Cyber Security
@@ -66,7 +66,7 @@ const TrainingPrograms = () => {
           <img
             src={kafupeople}
             alt="KAFUPEOPLE Logo"
-            className="mx-auto mb-6 w-28 sm:w-32 md:w-36 max-w-[400px]"
+            className="mx-auto mb-6 h-auto w-[80%] max-w-[400px] object-contain"
           />
           <h4 className="text-xl md:text-2xl font-semibold text-cDarkBlue mb-2">
             Internet of Things
