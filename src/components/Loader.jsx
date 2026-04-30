@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/images/kafupeople.svg";
+import logo from "../assets/images/kafupeople.png";
 
 const Loader = () => {
   return (
