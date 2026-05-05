@@ -80,7 +80,7 @@ const ContactSection = () => {
               />
             ) : allowFunctional ? (
               <PopupButton
-                url="https://calendly.com/vulh91"
+                url="https://calendly.com/kafupeople/30min"
                 rootElement={document.getElementById("root")}
                 branding
                 color="#00a2ff"
