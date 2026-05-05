@@ -19,10 +19,10 @@ function Train() {
       <div className="relative z-10 text-cWhite text-left ml-10 px-6 max-w-lg w-full">
         <p className="text-lg leading-relaxed">Innovate Smarter with AI</p>
         <h1 className="text-4xl font-bold mb-4">
-          Empowering Innovation with Smart Solutions
+          Empowering Innovation with Smart Solutions
         </h1>
         <p className="text-lg leading-relaxed">
-          Leading the way in Artificial <br /> Intelligence  
+          Leading the way in Artificial <br /> Intelligence
         </p>
       </div>
     </div>

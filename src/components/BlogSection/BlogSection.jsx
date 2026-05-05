@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import blogsection from "../../assets/images/blogs/blogSection.jpg";
@@ -53,7 +53,7 @@ const BlogSection = () => {
             className="relative lg:h-[80vh] h-[60vh] font-inter text-center text-cWhite bg-cover bg-center  lg:opacity-100 sm:opacity-15"
             style={{ backgroundImage: `url(${blogsection})` }}
           >
-            <div flex>
+            <div className="flex flex-col">
               <h1 className="relative text-4xl sm:text-5xl md:text-6xl lg:text-cWhite text-cWhite text-left lg:ml-24 ml-8 lg:pt-32 pt-44 font-bold z-10 sm:text-cBlack">
                 KAFUPEOPLE BLOGS
               </h1>
