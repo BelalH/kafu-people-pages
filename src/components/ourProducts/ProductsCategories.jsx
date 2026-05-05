@@ -22,6 +22,14 @@ const allProducts = [
   //   "url": "https://agent-zero.ai"
   // },
   {
+    "product_id": "p007",
+    "image": "/products/Echo3s.png",
+    "name": "Echo3s",
+    "description": "Empowering independent authors and production companies to create professional audiobooks with cutting-edge AI voice technology.",
+    "category": "AI & Agentic Workflows",
+    "url": "https://echo3s.io/"
+  },
+  {
     "product_id": "p002",
     "image": "/products/Dustai.png",
     "name": "Dustai",
@@ -60,14 +68,6 @@ const allProducts = [
     "description": "A modern link shortener built for startups. Focuses on analytics, branded links, and API-first usage. Built like a developer tool rather than a marketing SaaS.",
     "category": "SaaS & Startup MVPs",
     "url": "https://dub.co"
-  },
-  {
-    "product_id": "p007",
-    "image": "/products/Echo3s.png",
-    "name": "Echo3s",
-    "description": "Empowering independent authors and production companies to create professional audiobooks with cutting-edge AI voice technology.",
-    "category": "AI & Agentic Workflows",
-    "url": "https://echo3s.io/"
   },
   {
     "product_id": "p008",
