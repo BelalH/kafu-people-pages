@@ -8,7 +8,7 @@ export default function Hero() {
         {/* Right Section - Hero Image */}
         <div className="w-full lg:max-w-4xl mb-8 lg:mb-0 p-6">
           <img
-            src="/images/hero.png"
+            src="/images/hero.webp"
             alt="Hero Illustration"
             className="w-full max-w-[200px] sm:max-w-[400px] lg:max-w-full h-auto mx-auto"
           />

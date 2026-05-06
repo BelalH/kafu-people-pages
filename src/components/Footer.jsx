@@ -30,7 +30,7 @@ const Footer = () => {
         {/* Logo and Description */}
         <div>
           <img
-            src="/images/kafupeople-footer.png" // Replace with your logo URL
+            src="/images/kafupeople.webp" // Replace with your logo URL
             alt="Kafu-People Logo"
             className="mb-4 max-w-[45%] h-auto"
           />

@@ -15,7 +15,7 @@ const categories = [
 const allProducts = [
   // {
   //   "product_id": "p001",
-  //   "image": "/products/Agent Zero.png",
+  //   "image": "/products/Agent Zero.webp",
   //   "name": "Agent Zero",
   //   "description": "An autonomous AI agent that runs in a secure virtual computer, capable of writing code, executing commands, browsing the web, and creating its own tools to complete complex tasks. It operates as a self-improving system that breaks down goals, runs multi-step workflows, and adapts its behavior based on results.",
   //   "category": "AI & Agentic Workflows",
@@ -23,7 +23,7 @@ const allProducts = [
   // },
   {
     "product_id": "p007",
-    "image": "/products/Echo3s.png",
+    "image": "/products/Echo3s.webp",
     "name": "Echo3s",
     "description": "Empowering independent authors and production companies to create professional audiobooks with cutting-edge AI voice technology.",
     "category": "AI & Agentic Workflows",
@@ -31,7 +31,7 @@ const allProducts = [
   },
   {
     "product_id": "p002",
-    "image": "/products/Dustai.png",
+    "image": "/products/Dustai.webp",
     "name": "Dustai",
     "description": "An enterprise-grade AI agent system that automates internal knowledge workflows, enabling teams to query, summarize, and act on organizational data.",
     "category": "AI & Agentic Workflows",
@@ -39,7 +39,7 @@ const allProducts = [
   },
   {
     "product_id": "p003",
-    "image": "/products/Relevance AI.png",
+    "image": "/products/Relevance AI.webp",
     "name": "Relevance AI",
     "description": "A visual agent orchestration platform for building data-driven AI workflows, enabling automation across research, analytics, and business operations.",
     "category": "AI & Agentic Workflows",
@@ -47,7 +47,7 @@ const allProducts = [
   },
   {
     "product_id": "p004",
-    "image": "/products/Retool.png",
+    "image": "/products/Retool.webp",
     "name": "Retool",
     "description": "Popular among startups for building internal dashboards fast. Combines APIs, databases, and UI components in a drag-and-drop builder.",
     "category": "Cloud-Native Dashboards",
@@ -55,7 +55,7 @@ const allProducts = [
   },
   {
     "product_id": "p005",
-    "image": "/products/AI Internal Tool Generator.png",
+    "image": "/products/AI Internal Tool Generator.webp",
     "name": "AI Internal Tool Generator",
     "description": "A tool that generates internal dashboards and apps using AI prompts. Designed for startups that need quick admin panels without full engineering effort.",
     "category": "SaaS & Startup MVPs",
@@ -63,7 +63,7 @@ const allProducts = [
   },
   {
     "product_id": "p006",
-    "image": "/products/Dub.png",
+    "image": "/products/Dub.webp",
     "name": "Dub",
     "description": "A modern link shortener built for startups. Focuses on analytics, branded links, and API-first usage. Built like a developer tool rather than a marketing SaaS.",
     "category": "SaaS & Startup MVPs",
@@ -71,7 +71,7 @@ const allProducts = [
   },
   {
     "product_id": "p008",
-    "image": "/products/RadarOmega Cams.png",
+    "image": "/products/RadarOmega Cams.webp",
     "name": "RadarOmega Cams",
     "description": "RadarOmega Cams provides live camera feeds and accurate atmospheric data, including temperature, pressure, wind speed, and direction along with their trends. © SDS Weather LLC 2024.",
     "category": "Business & Corporate Websites",
