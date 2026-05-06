@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MenuItems from "./MenuItems";
 import { Link } from "react-router-dom";
-import kafupeople from "../../assets/images/kafupeople.png";
+import kafupeople from "../../assets/images/kafupeople.webp";
 
 const menuItems = [
   { title: "HOME", url: "/" },

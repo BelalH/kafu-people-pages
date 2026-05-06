@@ -1,5 +1,5 @@
 import React from "react";
-import Development from "../../assets/images/aboutUs/Development.png";
+import Development from "../../assets/images/aboutUs/Development.webp";
 
 const TrainingAndDevelopment = () => {
   return (

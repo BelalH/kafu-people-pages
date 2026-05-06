@@ -1,5 +1,5 @@
 import React from "react";
-import product from "../../assets/images/ourProducts/product.png";
+import product from "../../assets/images/ourProducts/product.webp";
 
 const ProductsSection = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import kafupeople from "../../assets/images/kafupeople.png";
+import kafupeople from "../../assets/images/kafupeople.webp";
 
 const TrainingPrograms = () => {
   return (
