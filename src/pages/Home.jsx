@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import PageSEO from "../components/PageSEO";
 import { PAGE_SEO } from "../config/seo";
 import Hero from "../components/homeComponents/Hero";
@@ -8,10 +9,24 @@ import TrainingPrograms from "../components/homeComponents/TrainingPrograms";
 import AnimatedStats from "../components/AnimatedStats";
 import Testimonials from "../components/homeComponents/Testimonials";
 import CTABanner from "../components/homeComponents/CTABanner";
-import NewsletterSignup from "../components/NewsletterSignup";
+import HomeNewsletterFooter from "../components/homeComponents/HomeNewsletterFooter";
 
 const Home = () => {
   const seo = PAGE_SEO.home;
+
+  useEffect(() => {
+    const html = document.documentElement;
+    html.classList.add("scroll-smooth", "snap-y", "snap-mandatory", "scroll-pt-[72px]", "sm:scroll-pt-20");
+    return () => {
+      html.classList.remove(
+        "scroll-smooth",
+        "snap-y",
+        "snap-mandatory",
+        "scroll-pt-[72px]",
+        "sm:scroll-pt-20",
+      );
+    };
+  }, []);
 
   return (
     <>
@@ -22,13 +37,13 @@ const Home = () => {
       />
       <Hero />
       <Features />
-      <AnimatedStats />
+      <AnimatedStats fullViewport />
       <ServicesSection />
       <Testimonials />
-      <Achievements />
+      <Achievements fullViewport />
       <TrainingPrograms />
-      <CTABanner />
-      <NewsletterSignup />
+      <CTABanner fullViewport />
+      <HomeNewsletterFooter />
     </>
   );
 };

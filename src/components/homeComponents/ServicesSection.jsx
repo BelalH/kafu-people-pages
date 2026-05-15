@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
+import { HOME_SECTION_CLASS } from "../../constants/homeLayout";
 
 const services = [
   {
@@ -36,7 +37,7 @@ const iconWrapperClass = {
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 bg-surface font-inter">
+    <section className={`py-8 bg-surface font-inter ${HOME_SECTION_CLASS}`}>
       <div className="max-w-7xl mx-auto text-center px-6">
         <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
           What we do

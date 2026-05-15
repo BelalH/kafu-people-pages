@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ServiceMainFile from "./components/servicesComponents/ServiceMainFile";
@@ -32,27 +32,14 @@ import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsentProvider } from "./context/CookieConsentProvider";
 
-const App = () => {
-  const [loading, setLoading] = useState(true);
+function AppShell() {
+  const { pathname } = useLocation();
+  const footerOutsideHome = pathname !== "/";
 
-  useEffect(() => {
-    // Set a timer for 10 seconds
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 700); // 700 milliseconds = 0.7 seconds
-
-    // Cleanup the timer if the component unmounts before the timer finishes
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return <Loader />;
-  }
   return (
-    <Router>
-      <CookieConsentProvider>
-        <Header />
-        <Routes>
+    <>
+      <Header />
+      <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
@@ -79,8 +66,32 @@ const App = () => {
         <Route path="/verifyUser" element={<VerifyUser />} />
 
         <Route path="/registrationList" element={<RegistrationList />} />
-        </Routes>
-        <Footer />
+      </Routes>
+      {footerOutsideHome ? <Footer /> : null}
+    </>
+  );
+}
+
+const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Set a timer for 10 seconds
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 700); // 700 milliseconds = 0.7 seconds
+
+    // Cleanup the timer if the component unmounts before the timer finishes
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+  return (
+    <Router>
+      <CookieConsentProvider>
+        <AppShell />
       </CookieConsentProvider>
     </Router>
   );

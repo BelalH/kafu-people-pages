@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaGlobe, FaTasks, FaAward, FaUsers } from "react-icons/fa";
+import { HOME_SECTION_CLASS } from "../constants/homeLayout";
 
-const AnimatedStats = () => {
+const AnimatedStats = ({ fullViewport = false }) => {
   const [stats, setStats] = useState({
     clients: 0,
     projects: 0,
@@ -74,9 +75,9 @@ const AnimatedStats = () => {
   ];
 
   return (
-    <div
+    <section
       id="stats-section"
-      className="w-full bg-primary py-12 font-inter text-cWhite text-center"
+      className={`w-full bg-primary font-inter text-cWhite text-center ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-12"}`}
     >
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
         {items.map(({ key, icon: Icon, label }) => (
@@ -89,7 +90,7 @@ const AnimatedStats = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

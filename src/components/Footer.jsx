@@ -18,12 +18,14 @@ import {
   LINKEDIN_URL,
 } from "../constants/site";
 
-const Footer = () => {
+const Footer = ({ embedded = false }) => {
   const { openCustomize } = useCookieConsent();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative text-cWhite py-12 font-inter bg-slate-950">
+    <footer
+      className={`relative text-cWhite py-10 sm:py-12 font-inter bg-slate-950 ${embedded ? "mt-auto shrink-0 w-full border-t border-slate-800/80" : ""}`}
+    >
       <div
         className="absolute inset-0 bg-gradient-to-br from-slate-950 via-primary-dark/40 to-slate-900"
         aria-hidden

@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
+import { HOME_SECTION_CLASS } from "../../constants/homeLayout";
 
-const CTABanner = () => {
+const CTABanner = ({ fullViewport = false }) => {
   return (
-    <section className="bg-gradient-to-br from-primary via-primary-dark to-slate-900 py-16 px-4 sm:px-8 lg:px-24 font-inter">
+    <section
+      className={`bg-gradient-to-br from-primary via-primary-dark to-slate-900 px-4 sm:px-8 lg:px-24 font-inter ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-16"}`}
+    >
       <div className="max-w-4xl mx-auto text-center text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">
           Ready to move from idea to production?
