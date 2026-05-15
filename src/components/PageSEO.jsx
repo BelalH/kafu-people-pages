@@ -1,11 +1,17 @@
 import { useEffect } from "react";
+import { DEFAULT_OG_IMAGE, SITE_URL } from "../config/seo";
 
 const META_ATTR = "data-kafu-page-seo";
 
 /**
- * Sets document title and injects basic SEO tags; removes them on unmount.
+ * Sets document title and injects SEO / social meta tags; removes them on unmount.
  */
-const PageSEO = ({ title, description, canonicalPath }) => {
+const PageSEO = ({
+  title,
+  description,
+  canonicalPath,
+  ogImage = DEFAULT_OG_IMAGE,
+}) => {
   useEffect(() => {
     const previousTitle = document.title;
     document.title = title;
@@ -27,17 +33,17 @@ const PageSEO = ({ title, description, canonicalPath }) => {
     if (description) {
       appendMeta({ name: "description", content: description });
       appendMeta({ property: "og:description", content: description });
+      appendMeta({ name: "twitter:description", content: description });
     }
     appendMeta({ property: "og:title", content: title });
     appendMeta({ property: "og:type", content: "website" });
+    appendMeta({ property: "og:image", content: ogImage });
     appendMeta({ name: "twitter:card", content: "summary_large_image" });
     appendMeta({ name: "twitter:title", content: title });
-    if (description) {
-      appendMeta({ name: "twitter:description", content: description });
-    }
+    appendMeta({ name: "twitter:image", content: ogImage });
+    appendMeta({ name: "theme-color", content: "#4F46E5" });
 
-    const origin = "https://kafupeople.com";
-    const url = canonicalPath ? `${origin}${canonicalPath}` : origin;
+    const url = canonicalPath ? `${SITE_URL}${canonicalPath}` : SITE_URL;
     appendMeta({ property: "og:url", content: url });
 
     const link = document.createElement("link");
@@ -50,7 +56,7 @@ const PageSEO = ({ title, description, canonicalPath }) => {
       created.forEach((node) => node.remove());
       document.title = previousTitle;
     };
-  }, [title, description, canonicalPath]);
+  }, [title, description, canonicalPath, ogImage]);
 
   return null;
 };

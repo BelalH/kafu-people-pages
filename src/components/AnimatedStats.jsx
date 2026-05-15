@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FaGlobe, FaTasks, FaAward, FaUsers } from "react-icons/fa";
 
 const AnimatedStats = () => {
@@ -17,8 +17,8 @@ const AnimatedStats = () => {
   };
 
   const animateNumbers = () => {
-    const duration = 2000; // Total duration of the animation in milliseconds
-    const frameRate = 30; // Updates per second
+    const duration = 2000;
+    const frameRate = 30;
     const totalFrames = Math.round((duration / 1000) * frameRate);
 
     const incrementValues = Object.keys(targetStats).reduce(
@@ -53,6 +53,7 @@ const AnimatedStats = () => {
   useEffect(() => {
     const handleScroll = () => {
       const statsSection = document.getElementById("stats-section");
+      if (!statsSection) return;
       const rect = statsSection.getBoundingClientRect();
 
       if (rect.top <= window.innerHeight && rect.bottom >= 0) {
@@ -62,53 +63,31 @@ const AnimatedStats = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const items = [
+    { key: "clients", icon: FaGlobe, label: "Trusted Clients" },
+    { key: "projects", icon: FaTasks, label: "Projects Completed" },
+    { key: "experience", icon: FaAward, label: "Years of Experience" },
+    { key: "team", icon: FaUsers, label: "Professional Team" },
+  ];
 
   return (
     <div
       id="stats-section"
-      className="w-full bg-cBrightBlue py-12 font-inter text-cWhite text-center"
+      className="w-full bg-primary py-12 font-inter text-cWhite text-center"
     >
-      <div className="max-w-6xl mx-auto text-cWhite grid grid-cols-2 md:grid-cols-4 gap-8">
-        {/* Trusted Clients */}
-        <div className="flex flex-col items-center">
-          <FaGlobe size={40} className="mb-4 text-gray-300" />
-          <h3 className="text-3xl md:text-[42px] font-bold">
-            {Math.round(stats.clients)}+
-          </h3>
-          <p className="text-sm md:text-base">Trusted Clients</p>
-        </div>
-
-        {/* Projects Completed */}
-        <div className="flex flex-col items-center">
-          <FaTasks size={40} className="mb-4 text-gray-300" />
-          <h3 className="text-3xl md:text-[42px] font-bold">
-            {Math.round(stats.projects)}+
-          </h3>
-          <p className="text-sm md:text-base">Projects Completed</p>
-        </div>
-
-        {/* Years of Experience */}
-        <div className="flex flex-col items-center">
-          <FaAward size={40} className="mb-4 text-gray-300" />
-          <h3 className="text-3xl md:text-[42px] font-bold">
-            {Math.round(stats.experience)}+
-          </h3>
-          <p className="text-sm md:text-base">Years of Experience</p>
-        </div>
-
-        {/* Professional Team */}
-        <div className="flex flex-col items-center">
-          <FaUsers size={40} className="mb-4 text-gray-300" />
-          <h3 className="text-3xl md:text-[42px] font-bold">
-            {Math.round(stats.team)}+
-          </h3>
-          <p className="text-sm md:text-base">Professional Team</p>
-        </div>
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+        {items.map(({ key, icon: Icon, label }) => (
+          <div key={key} className="flex flex-col items-center">
+            <Icon size={40} className="mb-4 text-primary-light opacity-90" />
+            <h3 className="text-3xl md:text-[42px] font-bold">
+              {Math.round(stats[key])}+
+            </h3>
+            <p className="text-sm md:text-base text-slate-200">{label}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

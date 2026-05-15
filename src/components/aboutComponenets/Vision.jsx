@@ -1,29 +1,26 @@
-import React from "react";
 import vision from "../../assets/images/aboutUs/vision.svg";
 
 const Vision = () => {
   return (
-    <div className="flex flex-col-reverse font-inter md:flex-row items-center bg-white px-4 py-8 lg-mx-20 sm:mx-8 md:px-8 md:py-12 gap-y-6">
-      {/* Text Section */}
+    <div className="flex flex-col-reverse font-inter md:flex-row items-center bg-surface px-4 py-12 lg:mx-20 sm:mx-8 md:px-8 gap-y-8">
       <div className="flex-1 flex justify-center items-center">
         <img
           src={vision}
-          alt="Vision Visual"
+          alt="Vision illustration"
           className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-contain"
         />
       </div>
-      <div className="flex-1 md:pr-8  mx-6 sm:text-left md:text-left ">
-        <h2 className="text-2xl font-bold text-cDarkBlue mb-4">OUR VISION:</h2>
-        <p className="text-base md:text-lg text-textGray leading-6">
-          Our vision is to be the world’s top-notch IT organization that enables
-          the delivery of innovative solutions and services to the world. Our
-          goal is to make a sustainable difference in the global society by
-          making it more connected, secure, and smarter for a lifetime via our
-          passion for delivering excellence and innovation in technology.
+      <div className="flex-1 md:pr-8 mx-6 sm:text-left">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4">Our vision</h2>
+        <p className="text-base md:text-lg text-muted leading-relaxed">
+          We aim to be a trusted technology partner for startups and growing
+          businesses in Europe and beyond — known for shipping reliable
+          software, communicating clearly, and helping teams turn complex ideas
+          into products that work in the real world. We measure success by your
+          outcomes: faster delivery, maintainable code, and systems you can scale
+          with confidence.
         </p>
       </div>
-
-      {/* Image Section */}
     </div>
   );
 };

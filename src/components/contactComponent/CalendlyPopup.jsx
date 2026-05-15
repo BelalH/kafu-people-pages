@@ -4,14 +4,18 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { useCookieConsent } from "../../context/useCookieConsent";
 import CookieFeatureFallback from "../cookies/CookieFeatureFallback";
 
-const CalendlyPopup = ({ url, buttonText = "Book a Meeting" }) => {
+const CalendlyPopup = ({
+  url,
+  buttonText = "Book a Meeting",
+  className = "flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-cWhite shadow-md transition hover:bg-primary-dark hover:shadow-lg",
+}) => {
   const { hydrated, allowFunctional } = useCookieConsent();
 
   useEffect(() => {
     if (!hydrated || !allowFunctional || !url) return undefined;
 
     const existing = document.querySelector(
-      'script[data-kafu-calendly="true"]'
+      'script[data-kafu-calendly="true"]',
     );
     if (existing) return undefined;
 
@@ -53,12 +57,8 @@ const CalendlyPopup = ({ url, buttonText = "Book a Meeting" }) => {
   };
 
   return (
-    <button
-      type="button"
-      className="flex items-center gap-2 rounded-lg bg-[#2563EB] px-6 py-3 font-semibold text-cWhite shadow-md transition hover:bg-blue-700 hover:shadow-lg"
-      onClick={openCalendly}
-    >
-      <FaCalendarAlt className="h-5 w-5" />
+    <button type="button" className={className} onClick={openCalendly}>
+      <FaCalendarAlt className="h-5 w-5 shrink-0" />
       {buttonText}
     </button>
   );

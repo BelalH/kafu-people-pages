@@ -3,6 +3,8 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import blogsection from "../../assets/images/blogs/blogSection.jpg";
 import Loader from "../Loader";
+import PageSEO from "../PageSEO";
+import { PAGE_SEO } from "../../config/seo";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const BlogSection = () => {
   const [blogs, setBlogs] = useState([]); // Store fetched blogs
@@ -43,8 +45,15 @@ const BlogSection = () => {
       : Array.isArray(blogs) &&
         blogs.filter((blog) => blog.category === categoryMap[filter]);
 
+  const seo = PAGE_SEO.blog;
+
   return (
-    <div>
+    <>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.canonicalPath}
+      />
       {loading ? (
         <Loader />
       ) : (
@@ -127,7 +136,7 @@ const BlogSection = () => {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 };
 

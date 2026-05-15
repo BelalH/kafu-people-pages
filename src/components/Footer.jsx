@@ -2,149 +2,125 @@ import { Link } from "react-router-dom";
 import { useCookieConsent } from "../context/useCookieConsent";
 import { MdMarkEmailUnread } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
-
 import { IoIosTime } from "react-icons/io";
 import {
   FaShieldAlt,
   FaBrain,
   FaCloud,
   FaLink,
-} from "react-icons/fa"; // Import icons
-import { FaWhatsapp, FaLinkedin } from "react-icons/fa"; // Import WhatsApp icon
-import footer from "../assets/images/footer.png";
+  FaWhatsapp,
+  FaLinkedin,
+} from "react-icons/fa";
+import {
+  CONTACT_EMAIL,
+  WHATSAPP_URL,
+  WHATSAPP_DISPLAY,
+  LINKEDIN_URL,
+} from "../constants/site";
 
 const Footer = () => {
   const { openCustomize } = useCookieConsent();
+  const year = new Date().getFullYear();
 
   return (
-    <footer
-      className="text-cWhite py-8 font-inter"
-      style={{
-        backgroundImage: `url(${footer})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Logo and Description */}
+    <footer className="relative text-cWhite py-12 font-inter bg-slate-950">
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-slate-950 via-primary-dark/40 to-slate-900"
+        aria-hidden
+      />
+      <div className="relative z-10 container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <img
-            src="/images/kafupeople.webp" // Replace with your logo URL
-            alt="Kafu-People Logo"
-            className="mb-4 max-w-[45%] h-auto"
+            src="/images/kafupeople.webp"
+            alt="Kafu People Logo"
+            className="mb-4 max-w-[45%] h-auto brightness-110"
           />
-          <p className="text-sm text-lightBlue">
-            Join us on a journey of innovation and discovery as we navigate the
-            ever-evolving landscape of technology together. Welcome to
-            KAFUPEOPLE – where the future of technology begins.
+          <p className="text-sm text-slate-200 leading-relaxed">
+            We partner with startups and teams to deliver AI, cloud, and
+            full-stack solutions — with clear communication and craftsmanship you
+            can trust.
           </p>
         </div>
 
-        {/* Services */}
-        <div className="">
-          <h3 className="text-lg font-bold mb-4">Services</h3>
-          <ul className="space-y-2 text-sm text-lightBlue">
-            <li>
-              <div className="flex items-center hover:text-CPurple transition-colors duration-300">
-                <FaShieldAlt className="mr-2" />
-                AI & Agentic Workflows
-              </div>
+        <div>
+          <h3 className="text-lg font-bold mb-4 text-white">Services</h3>
+          <ul className="space-y-2 text-sm text-slate-200">
+            <li className="flex items-center hover:text-primary-light transition-colors">
+              <FaShieldAlt className="mr-2 shrink-0" />
+              AI & Agentic Workflows
             </li>
-            <li>
-              <div className="flex items-center hover:text-CPurple transition-colors duration-300">
-                <FaBrain className="mr-2" />
-                SaaS & Startup MVPs
-              </div>
+            <li className="flex items-center hover:text-primary-light transition-colors">
+              <FaBrain className="mr-2 shrink-0" />
+              SaaS & Startup MVPs
             </li>
-            <li>
-              <div className="flex items-center hover:text-CPurple transition-colors duration-300">
-                <FaCloud className="mr-2" />
-                Cloud-Native Dashboards
-              </div>
+            <li className="flex items-center hover:text-primary-light transition-colors">
+              <FaCloud className="mr-2 shrink-0" />
+              Cloud-Native Dashboards
             </li>
-            <li>
-              <div className="flex items-center hover:text-CPurple transition-colors duration-300">
-                <FaLink className="mr-2" />
-                Business & Corporate Websites
-              </div>
+            <li className="flex items-center hover:text-primary-light transition-colors">
+              <FaLink className="mr-2 shrink-0" />
+              Business & Corporate Websites
             </li>
           </ul>
         </div>
 
-        {/* Business Hours */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Business Hours</h3>
-          <ul className="space-y-2 text-sm text-lightBlue">
+          <h3 className="text-lg font-bold mb-4 text-white">Business Hours</h3>
+          <ul className="space-y-2 text-sm text-slate-200">
             <li>
-              <span className="font-semibold  text-[#983139] flex items-center">
+              <span className="font-semibold text-accent-light flex items-center gap-1">
                 <IoIosTime />
                 Monday to Friday:
               </span>{" "}
-              9:00 AM - 9:00 PM
+              9:00 AM – 9:00 PM (CET)
             </li>
-            {/* <li>
-              <span className="font-semibold flex text-[#983139] flez items-center">
-                <IoIosTime />
-                Saturday:
-              </span>{" "}
-              10:00 AM - 6:00 PM
-            </li>
-            <li>
-              <span className="font-semibold flex text-[#983139]  items-center">
-                <IoIosTime />
-                Sunday:
-              </span>{" "}
-              10:00 AM - 6:00 PM
-            </li> */}
           </ul>
         </div>
 
-        {/* Contact Information */}
         <div>
-          <h3 className="text-lg font-bold mb-4">Get in Touch</h3>
-          <ul className="space-y-2 text-sm text-lightBlue">
+          <h3 className="text-lg font-bold mb-4 text-white">Get in Touch</h3>
+          <ul className="space-y-3 text-sm text-slate-200">
             <li>
-              <span className="font-semibold flex text-[#983139]">
+              <span className="font-semibold text-accent-light flex items-center gap-1">
                 <FaLocationDot />
                 Address:
               </span>{" "}
               Amsterdam, NL
             </li>
             <li>
-              <span className="font-semibold text-[#983139] flex items-center">
-                {" "}
-                <FaWhatsapp className="mr-2" />
-                Phone:
+              <span className="font-semibold text-accent-light flex items-center gap-1">
+                <FaWhatsapp className="shrink-0" />
+                WhatsApp:
               </span>{" "}
               <a
-                href="https://wa.me/923334471066"
-                className="text-blue-400 hover:underline hover:text-CPurple flex items-center transition-colors duration-300"
+                href={WHATSAPP_URL}
+                className="text-white underline-offset-2 hover:underline hover:text-primary-light transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                +31 6 13913024
+                {WHATSAPP_DISPLAY}
               </a>
             </li>
-            <li className="hover:text-CPurple  transition-colors duration-300">
-              <span className="font-semibold text-[#983139] flex items-center ">
-                <MdMarkEmailUnread className="mr-2" /> Email:
+            <li>
+              <span className="font-semibold text-accent-light flex items-center gap-1">
+                <MdMarkEmailUnread />
+                Email:
               </span>{" "}
               <a
-                href="mailto:hello@kafupeople.com"
-                className="text-blue-400 hover:underline"
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="text-white underline-offset-2 hover:underline hover:text-primary-light transition-colors"
               >
-                hello@kafupeople.com
+                {CONTACT_EMAIL}
               </a>
             </li>
-            <li className="hover:text-CPurple transition-colors duration-300">
-              <span className="font-semibold text-[#983139] flex items-center">
-                <FaLinkedin className="mr-2" />
+            <li>
+              <span className="font-semibold text-accent-light flex items-center gap-1">
+                <FaLinkedin />
                 LinkedIn:
               </span>{" "}
               <a
-                href="https://www.linkedin.com/company/kafu-people/"
-                className="text-blue-400 hover:underline hover:text-CPurple transition-colors duration-300"
+                href={LINKEDIN_URL}
+                className="text-white underline-offset-2 hover:underline hover:text-primary-light transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -155,29 +131,28 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Footer Bottom */}
-      <div className="border-t border-textGray text-textGray mt-8  pt-4 text-center text-sm">
-        <p>KAFU PEOPLE Copyright © 2020. All rights reserved.</p>
+      <div className="relative z-10 border-t border-slate-700 mt-10 pt-6 text-center text-sm text-slate-300">
+        <p>Kafu People © {year}. All rights reserved.</p>
         <nav
-          className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
+          className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
           aria-label="Legal and cookie preferences"
         >
           <Link
             to="/terms-of-service"
-            className="hover:underline hover:text-cWhite focus:outline-none focus-visible:ring-2 focus-visible:ring-CPurple rounded"
+            className="hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
           >
             Terms of Service
           </Link>
           <Link
             to="/privacy-policy"
-            className="hover:underline hover:text-cWhite focus:outline-none focus-visible:ring-2 focus-visible:ring-CPurple rounded"
+            className="hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
           >
             Privacy Policy
           </Link>
           <button
             type="button"
             onClick={openCustomize}
-            className="hover:underline hover:text-cWhite focus:outline-none focus-visible:ring-2 focus-visible:ring-CPurple rounded bg-transparent border-0 cursor-pointer text-inherit font-inherit text-sm"
+            className="hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded bg-transparent border-0 cursor-pointer text-inherit text-sm"
           >
             Cookie Preferences
           </button>
