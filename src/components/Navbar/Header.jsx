@@ -8,7 +8,7 @@ const Header = () => {
       <header className="fixed top-0 inset-x-0 z-50">
         <Navbar />
       </header>
-      <div className="h-[73px] sm:h-[81px]" aria-hidden="true" />
+      <div className="h-[72px] sm:h-[80px]" aria-hidden="true" />
     </>
   );
 };

@@ -16,13 +16,13 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="p-4 w-full text-sm font-medium bg-cWhite shadow-sm border-b border-slate-200 font-inter px-4 sm:px-8 md:px-16 lg:px-32">
+    <nav className="py-2 px-4 sm:px-8 md:px-16 lg:px-32 w-full text-sm font-medium bg-cWhite shadow-sm border-b border-slate-200 font-inter">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="shrink-0 flex items-center">
           <img
             src={kafupeople}
             alt="Kafu People"
-            className="h-12 w-auto max-w-[170px] sm:h-14 sm:max-w-[200px] object-contain object-left"
+            className="h-14 w-auto max-w-[190px] sm:h-16 sm:max-w-[220px] object-contain object-left"
           />
         </Link>
 
