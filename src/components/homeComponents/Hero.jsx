@@ -3,18 +3,8 @@ import { Link } from "react-router-dom";
 export default function Hero() {
   return (
     <section className="bg-white w-full py-12 sm:py-16 font-inter px-6 sm:px-10 lg:px-16 xl:px-32">
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-8 lg:gap-12">
-        <div className="w-full flex justify-center lg:flex-1 lg:max-w-xl shrink-0">
-          <img
-            src="/images/hero.webp"
-            alt="Kafu People — technology solutions for growing businesses"
-            className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-md h-auto object-contain"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-
-        <div className="w-full text-center lg:text-left lg:max-w-xl lg:flex-1">
+      <div className="container mx-auto flex justify-center">
+        <div className="w-full max-w-3xl text-center">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
             Amsterdam · Remote worldwide
           </p>
@@ -30,7 +20,7 @@ export default function Hero() {
             development, and scalable AWS architecture. Clear communication,
             structured delivery, and outcomes you can measure.
           </p>
-          <div className="flex justify-center lg:justify-start">
+          <div className="flex justify-center">
             <Link
               to="/portfolio"
               className="inline-flex items-center justify-center rounded-lg border-2 border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-surface transition"
