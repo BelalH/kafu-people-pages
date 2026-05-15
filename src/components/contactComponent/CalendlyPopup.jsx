@@ -7,6 +7,7 @@ import CookieFeatureFallback from "../cookies/CookieFeatureFallback";
 const CalendlyPopup = ({
   url,
   buttonText = "Book a Meeting",
+  showIcon = true,
   className = "flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-cWhite shadow-md transition hover:bg-primary-dark hover:shadow-lg",
 }) => {
   const { hydrated, allowFunctional } = useCookieConsent();
@@ -58,7 +59,7 @@ const CalendlyPopup = ({
 
   return (
     <button type="button" className={className} onClick={openCalendly}>
-      <FaCalendarAlt className="h-5 w-5 shrink-0" />
+      {showIcon && <FaCalendarAlt className="h-5 w-5 shrink-0" />}
       {buttonText}
     </button>
   );

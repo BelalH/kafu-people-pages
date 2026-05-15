@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import BookMeetingButton from "../ui/BookMeetingButton";
 
 export default function Hero() {
   return (
@@ -31,8 +30,7 @@ export default function Hero() {
             development, and scalable AWS architecture. Clear communication,
             structured delivery, and outcomes you can measure.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <BookMeetingButton buttonText="Book a Meeting" />
+          <div className="flex justify-center lg:justify-start">
             <Link
               to="/portfolio"
               className="inline-flex items-center justify-center rounded-lg border-2 border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-surface transition"

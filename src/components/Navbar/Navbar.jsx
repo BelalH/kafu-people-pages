@@ -2,6 +2,7 @@ import { useState } from "react";
 import MenuItems from "./MenuItems";
 import { Link } from "react-router-dom";
 import kafupeople from "../../assets/images/kafupeople.webp";
+import BookMeetingButton from "../ui/BookMeetingButton";
 
 const menuItems = [
   { title: "HOME", url: "/" },
@@ -37,12 +38,17 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="hidden lg:flex lg:items-center lg:ml-auto">
+        <div className="hidden lg:flex lg:items-center lg:ml-auto lg:gap-6">
           <ul className="flex space-x-6">
-            {menuItems.map((menu, index) => (
+            {menuItems.map((menu) => (
               <MenuItems items={menu} key={menu.title} depthLevel={0} />
             ))}
           </ul>
+          <BookMeetingButton
+            buttonText="Book a Meeting"
+            showIcon={false}
+            className="!px-4 !py-2 !text-sm whitespace-nowrap shrink-0"
+          />
         </div>
       </div>
 
@@ -52,6 +58,13 @@ const Navbar = () => {
             <MenuItems items={menu} key={menu.title} depthLevel={0} />
           ))}
         </ul>
+        <div className="flex justify-center px-4 pb-4 bg-slate-900 rounded-b-lg">
+          <BookMeetingButton
+            buttonText="Book a Meeting"
+            showIcon={false}
+            className="w-full max-w-xs justify-center"
+          />
+        </div>
       </div>
     </nav>
   );

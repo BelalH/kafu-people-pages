@@ -14,13 +14,15 @@ const variantClasses = {
 export default function BookMeetingButton({
   buttonText = "Book a Meeting",
   variant = "primary",
+  showIcon = true,
   className = "",
 }) {
   return (
     <CalendlyPopup
       url={CALENDLY_URL}
       buttonText={buttonText}
-      className={`inline-flex items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition ${variantClasses[variant] || variantClasses.primary} ${className}`}
+      showIcon={showIcon}
+      className={`inline-flex items-center justify-center ${showIcon ? "gap-2" : ""} rounded-lg px-6 py-3 text-sm font-semibold transition ${variantClasses[variant] || variantClasses.primary} ${className}`}
     />
   );
 }
