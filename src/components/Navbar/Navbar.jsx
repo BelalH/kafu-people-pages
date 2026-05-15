@@ -15,7 +15,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="p-4 w-full text-sm font-medium bg-cWhite shadow-sm border-b border-slate-200 sticky top-0 z-20 font-inter px-4 sm:px-8 md:px-16 lg:px-32">
+    <nav className="p-4 w-full text-sm font-medium bg-cWhite shadow-sm border-b border-slate-200 font-inter px-4 sm:px-8 md:px-16 lg:px-32">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="shrink-0 flex items-center">
           <img
