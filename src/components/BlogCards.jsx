@@ -1,5 +1,4 @@
-import React from "react";
-
+import { Link } from "react-router-dom";
 import cloudComputing1 from "../assets/images/blogs/cloudComputing1.png";
 import cloudComputing2 from "../assets/images/blogs/cloudComputing2.png";
 import cloudComputing3 from "../assets/images/blogs/cloudComputing3.jpg";
@@ -38,17 +37,17 @@ const BlogCards = () => {
   ];
 
   return (
-    <div className="bg-cBrightBlue text-cWhite py-12 px-4 sm:px-8 font-inter">
+    <section className="bg-primary text-cWhite py-12 px-4 sm:px-8 font-inter">
       <h4 className="text-center text-sm text-cWhite mb-3">OUR BLOG</h4>
       <h2 className="text-center text-2xl text-cWhite font-bold mb-8">
         Latest Blog & Articles
       </h2>
       <div className="flex flex-col items-center gap-6">
         {blogs.map((blog) => (
-          <a
+          <Link
             key={blog.id}
-            href="#"
-            className="bg-CcradColor text-black border border-[#5D65CA] rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl hover:shadow-CPurple w-full max-w-4xl flex flex-col sm:flex-row"
+            to="/blogSection"
+            className="bg-CcradColor text-black border border-primary/30 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl w-full max-w-4xl flex flex-col sm:flex-row no-underline"
           >
             {/* Left: Image */}
             <div className="w-full sm:w-1/3 flex justify-center items-center">
@@ -71,10 +70,10 @@ const BlogCards = () => {
                 READ MORE →
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

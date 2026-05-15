@@ -6,24 +6,8 @@ import kafupeople from "../../assets/images/kafupeople.webp";
 const menuItems = [
   { title: "HOME", url: "/" },
   { title: "ABOUT", url: "/about" },
-  {
-    title: "SERVICES",
-    url: "/services",
-    // submenu: [
-    //   { title: "Cyber Security", url: "cyber" },
-    //   { title: "Artificial Intelligence", url: "Artificial" },
-    //   { title: "Digital Marketing", url: "digital-marketing" },
-    //   { title: "Software Development", url: "#" },
-    //   { title: "Graphic Designing", url: "#" },
-    // ],
-  },
-  {
-    title: "TRAINING",
-    url: "",
-  },
+  { title: "SERVICES", url: "/services" },
   { title: "PORTFOLIO", url: "/portfolio" },
-  // { title: "NEWS & EVENTS", url: "/newsAndEvents" },
-  // { title: "BLOGS", url: "/blogSection" },
   { title: "CONTACT", url: "/contact" },
 ];
 
@@ -31,38 +15,41 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="p-4 w-full text-sm font-medium bg-cWhite shadow-md shadow-cOrange sticky top-0 z-20 font-inter px-4 sm:px-8 md:px-16 lg:px-32">
+    <nav className="p-4 w-full text-sm font-medium bg-cWhite shadow-sm border-b border-slate-200 sticky top-0 z-20 font-inter px-4 sm:px-8 md:px-16 lg:px-32">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/">
-          <img src={kafupeople} alt="Logo" style={{ maxWidth: "12%" }} />
+        <Link to="/" className="shrink-0 flex items-center">
+          <img
+            src={kafupeople}
+            alt="Kafu People"
+            className="h-10 w-auto max-w-[140px] sm:h-12 sm:max-w-[160px] object-contain object-left"
+          />
         </Link>
 
-        {/* Toggle Button for Mobile & iPad */}
         <div className="lg:hidden">
           <button
-            className="text-black focus:outline-none text-2xl font-bold"
+            type="button"
+            className="text-slate-900 focus:outline-none text-2xl font-bold p-2"
             onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-label="Toggle menu"
           >
             {isOpen ? "✖" : "☰"}
           </button>
         </div>
 
-        {/* Navbar Items (Hidden for Mobile & iPad) */}
         <div className="hidden lg:flex lg:items-center lg:ml-auto">
           <ul className="flex space-x-6">
             {menuItems.map((menu, index) => (
-              <MenuItems items={menu} key={index} depthLevel={0} />
+              <MenuItems items={menu} key={menu.title} depthLevel={0} />
             ))}
           </ul>
         </div>
       </div>
 
-      {/* Mobile & iPad Menu Dropdown */}
       <div className={`lg:hidden ${isOpen ? "block" : "hidden"}`}>
-        <ul className="bg-gray-800 w-full text-center py-4">
-          {menuItems.map((menu, index) => (
-            <MenuItems items={menu} key={index} depthLevel={0} />
+        <ul className="bg-slate-900 w-full text-center py-4 rounded-b-lg">
+          {menuItems.map((menu) => (
+            <MenuItems items={menu} key={menu.title} depthLevel={0} />
           ))}
         </ul>
       </div>

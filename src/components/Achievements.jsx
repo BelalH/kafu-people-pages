@@ -1,100 +1,83 @@
-import React from "react";
 import { motion } from "framer-motion";
 import {
   FaCogs,
   FaLaptopCode,
   FaLightbulb,
-  FaChalkboardTeacher,
   FaCheckCircle,
   FaUserFriends,
+  FaComments,
 } from "react-icons/fa";
 
 const Achievements = () => {
   const achievements = [
     {
       id: 1,
-      icon: <FaCogs size={40} />,
-      title: "Industry Leadership",
+      icon: <FaCogs size={36} />,
+      title: "Structured delivery",
       description:
-        "KAFUPEOPLE stands at the forefront  of IT solutions, driving innovation and shaping the global technology landscape with our cutting-edge expertise and forward-thinking strategies.",
+        "We scope work clearly, communicate progress often, and adapt when requirements shift — so you always know where your project stands.",
     },
     {
       id: 2,
-      icon: <FaLaptopCode size={40} />,
-      title: "Comprehensive Services",
+      icon: <FaLaptopCode size={36} />,
+      title: "Full-stack & cloud",
       description:
-        "We provide a broad spectrum of IT services, including cybersecurity, AI, cloud computing, blockchain, networking, digital marketing, and graphic design, tailored to address the specific needs of each client.",
+        "From React frontends to AWS backends, APIs, and databases — we build systems designed to run in production, not just demos.",
     },
     {
       id: 3,
-      icon: <FaLightbulb size={40} />,
-      title: "Innovative Products",
+      icon: <FaLightbulb size={36} />,
+      title: "AI that ships",
       description:
-        "Discover our range of innovative products, from advanced software solutions to specialized tools, engineered to boost productivity and enhance security while aligning with our clients' business goals.",
+        "Agent workflows, integrations, and ML features grounded in your product goals — practical automation your team can maintain.",
     },
     {
       id: 4,
-      icon: <FaChalkboardTeacher size={40} />,
-      title: "Cutting-edge Training Programs",
+      icon: <FaComments size={36} />,
+      title: "Clear communication",
       description:
-        "Our expert-led training programs are designed to equip individuals and teams with the latest tools and techniques across various fields, fostering continuous growth and success in the digital age.",
+        "Regular updates, honest timelines, and questions asked early — the kind of partnership our clients highlight in their reviews.",
     },
     {
       id: 5,
-      icon: <FaCheckCircle size={40} />,
-      title: "Quality Assurance",
+      icon: <FaCheckCircle size={36} />,
+      title: "Quality you can review",
       description:
-        "We uphold the highest standards of quality in every service, ensuring a reliable, efficient, and prompt delivery, securing consistent satisfaction and trust from our clients.",
+        "Clean, documented code and attention to detail on every engagement — from DEX tooling to enterprise migrations.",
     },
     {
       id: 6,
-      icon: <FaUserFriends size={40} />,
-      title: "Customer Focus",
+      icon: <FaUserFriends size={36} />,
+      title: "Client-first focus",
       description:
-        "KAFUPEOPLE places a strong emphasis on understanding and meeting client needs with precision while aligning our solutions with their strategic objectives.",
+        "We align with your business outcomes: speed to market, maintainability, and solutions that fit how your team actually works.",
     },
   ];
 
   return (
-    <section className="w-full  bg-cBrightBlue  text-cWhite py-16 px-6 sm:px-10 lg:px-20 font-inter">
+    <section className="w-full bg-slate-900 text-cWhite py-16 px-6 sm:px-10 lg:px-20 font-inter">
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
-        <div className="relative mb-12 text-center sm:text-left">
-          <h2 className="text-sm uppercase text-cWhite font-normal tracking-wide mb-2">
-            Why Choose Us
+        <div className="mb-12 text-center">
+          <p className="text-sm uppercase text-accent-light font-medium tracking-wide mb-2">
+            Why choose us
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-semibold text-white leading-tight">
+            How we work with you
           </h2>
-          <h1 className="text-2xl sm:text-3xl font-semibold text-cWhite leading-tight">
-            Achievements for KAFUPEOPLE:
-          </h1>
-          {/* Decorative Star */}
-          <div className="absolute right-8 sm:right-48 top-8 transform translate-x-[50%] -translate-y-[20%] hidden sm:block">
-            <span className="text-cWhite text-4xl">★</span>
-          </div>
         </div>
-        {/* Achievements Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {achievements.map(({ id, icon, title, description }) => (
             <motion.div
               key={id}
-              className="bg-cBrightBlue text-cWhite border border-[#464d7d] p-8 sm:p-10 rounded-lg relative shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-              whileHover={{
-                scale: 1.02,
-                boxShadow: "0px 6px 9px blue",
-              }}
+              className="bg-slate-800/80 border border-slate-700 p-8 rounded-xl relative"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3 }}
             >
-              {/* Icon */}
-              <div className="absolute -top-8 left-4 sm:left-6 bg-cWhite p-3 rounded-full border shadow-lg shadow-CPurple border-[#464d7d]">
-                <div className="text-cDarkBlue">{icon}</div>
-              </div>
-              {/* Title */}
-              <h3 className="mt-8 text-lg sm:text-xl font-medium text-cWhite">
-                {title}
-              </h3>
-              {/* Description */}
-              <p className="text-sm text-[#c2c4d5] mt-4 leading-relaxed text-justify">
+              <div className="mb-4 text-primary-light">{icon}</div>
+              <h3 className="text-lg font-semibold text-white mb-3">{title}</h3>
+              <p className="text-sm text-slate-300 leading-relaxed">
                 {description}
               </p>
             </motion.div>

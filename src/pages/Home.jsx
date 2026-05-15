@@ -1,32 +1,33 @@
-import React from "react";
-
+import PageSEO from "../components/PageSEO";
+import { PAGE_SEO } from "../config/seo";
 import Hero from "../components/homeComponents/Hero";
 import Features from "../components/homeComponents/Features";
-import About from "../components/homeComponents/About";
 import ServicesSection from "../components/homeComponents/ServicesSection";
 import Achievements from "../components/Achievements";
 import TrainingPrograms from "../components/homeComponents/TrainingPrograms";
-import ProductsSection from "../components/homeComponents/ProductsSection";
-
 import AnimatedStats from "../components/AnimatedStats";
-import TeamSlider from "../components/homeComponents/TeamSlider";
-import BlogCards from "../components/BlogCards";
+import Testimonials from "../components/homeComponents/Testimonials";
+import CTABanner from "../components/homeComponents/CTABanner";
 import NewsletterSignup from "../components/NewsletterSignup";
-import Header from "../components/Navbar/Header";
 
 const Home = () => {
+  const seo = PAGE_SEO.home;
+
   return (
     <>
+      <PageSEO
+        title={seo.title}
+        description={seo.description}
+        canonicalPath={seo.canonicalPath}
+      />
       <Hero />
       <Features />
-      {/* <About /> */}
       <AnimatedStats />
       <ServicesSection />
+      <Testimonials />
       <Achievements />
       <TrainingPrograms />
-      {/* <ProductsSection /> */}
-      {/* <TeamSlider /> */}
-      {/* <BlogCards /> */}
+      <CTABanner />
       <NewsletterSignup />
     </>
   );

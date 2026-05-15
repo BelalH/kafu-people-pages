@@ -1,48 +1,45 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import BookMeetingButton from "../ui/BookMeetingButton";
 
 export default function Hero() {
   return (
-    <section className="bg-white w-full h-auto py-16 font-inter px-6  sm:px-10 lg:px-16 xl:px-32 mt-4">
-      <div className="container mx-auto flex flex-col lg:flex-row-reverse items-center justify-between">
-        {/* Right Section - Hero Image */}
-        <div className="w-full lg:max-w-4xl mb-8 lg:mb-0 p-6">
+    <section className="bg-white w-full py-12 sm:py-16 font-inter px-6 sm:px-10 lg:px-16 xl:px-32">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-8 lg:gap-12">
+        <div className="w-full flex justify-center lg:flex-1 lg:max-w-xl shrink-0">
           <img
             src="/images/hero.webp"
-            alt="Hero Illustration"
-            className="w-full max-w-[200px] sm:max-w-[400px] lg:max-w-full h-auto mx-auto"
+            alt="Kafu People — technology solutions for growing businesses"
+            className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-md h-auto object-contain"
+            loading="eager"
+            decoding="async"
           />
         </div>
 
-        {/* Left Section - Text Content */}
-        <div className="text-center lg:text-left lg:max-w-lg">
-          <h1 className="text-gray-800 font-medium text-lg sm:text-xl lg:text-2xl">
-            Welcome to <span className="text-primary">KAFUPEOPLE</span>
-          </h1>
-          <h2 className="text-gray-800 font-bold text-3xl sm:text-4xl lg:text-4xl mb-6 leading-snug">
-            Your Gateway to Innovative Technology Solutions
-          </h2>
-          <p className="text-black text-base sm:text-lg lg:text-xl font-medium mb-8 lg:mb-12 leading-relaxed text-justify">
-            At Kafu People, we are not just driving digital transformation—we
-            are redefining how startups and growing businesses build, scale, and
-            operate in today's fast-evolving tech landscape. Through targeted AI
-            transformation training, end-to-end full-stack development, and
-            scalable AWS cloud architecture, we empower you to move from idea to
-            production-ready MVP with confidence. By reducing technical
-            complexity and focusing on practical, business-driven outcomes, we
-            turn today's infrastructure and AI challenges into tomorrow's
-            breakthroughs. Let’s build with velocity and scale with
-            intelligence, together
+        <div className="w-full text-center lg:text-left lg:max-w-xl lg:flex-1">
+          <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
+            Amsterdam · Remote worldwide
           </p>
-          {/* New Enroll Now Button */}
-          {/* <Link to={"/enroll"}>
-            <button
-              type="button"
-              className="bg-gradient-to-r from-cDarkBlue to-CPurple border border-CPurple text-cWhite ml-4 py-2 px-4 rounded-lg font-semibold cursor-pointer transition duration-300 ease-in-out hover:from-CPurple hover:to-cDarkBlue hover:border-cDarkBlue"
+          <h1 className="text-slate-900 font-medium text-lg sm:text-xl lg:text-2xl">
+            Welcome to <span className="text-primary">Kafu People</span>
+          </h1>
+          <h2 className="text-slate-900 font-bold text-3xl sm:text-4xl lg:text-5xl mb-6 leading-snug">
+            Build and scale with AI, cloud, and full-stack expertise
+          </h2>
+          <p className="text-muted text-base sm:text-lg mb-8 lg:mb-10 leading-relaxed">
+            We help startups and growing businesses move from idea to
+            production-ready products — with practical AI workflows, end-to-end
+            development, and scalable AWS architecture. Clear communication,
+            structured delivery, and outcomes you can measure.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <BookMeetingButton buttonText="Book a Meeting" />
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-primary px-6 py-3 text-sm font-semibold text-primary hover:bg-surface transition"
             >
-              ENROLL NOW →
-            </button>
-          </Link> */}
+              View Portfolio
+            </Link>
+          </div>
         </div>
       </div>
     </section>

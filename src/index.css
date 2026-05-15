@@ -4,3 +4,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-inter text-slate-900 antialiased;
+  }
+
+  a {
+    @apply transition-colors;
+  }
+}

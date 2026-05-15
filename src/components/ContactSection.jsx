@@ -2,10 +2,16 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
 import form from "../assets/images/contactUs/form.png";
 import { PopupButton } from "react-calendly";
-
 import { FaWhatsappSquare, FaLinkedin } from "react-icons/fa";
 import { useCookieConsent } from "../context/useCookieConsent";
 import CookieFeatureFallback from "./cookies/CookieFeatureFallback";
+import {
+  CALENDLY_URL,
+  CONTACT_EMAIL,
+  WHATSAPP_URL,
+  WHATSAPP_DISPLAY,
+  LINKEDIN_URL,
+} from "../constants/site";
 
 const ContactSection = () => {
   const { hydrated, allowFunctional } = useCookieConsent();
@@ -24,24 +30,23 @@ const ContactSection = () => {
         <div className="text-center md:text-left">
           <h2 className="text-3xl font-bold mb-6 sm:text-2xl">Get in Touch:</h2>
           <p className="mb-6 text-base sm:text-sm">
-            At <span className="font-semibold">KAFUPEOPLE,</span> we are
-            committed to providing exceptional IT solutions and services to meet
-            your business needs. Whether you have a question, need support, or
-            want to explore our services, we are here to help.
+            At <span className="font-semibold">Kafu People</span>, we help you
+            ship AI, cloud, and full-stack solutions. Book a meeting or send a
+            message — we typically respond within one business day.
           </p>
           <div className="mb-4 text-base">
-            <a href="mailto:hello@kafupeople.com" className="text-[#C2ABB9]">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-slate-200 hover:text-white">
               <p className="text-cWhite flex items-center justify-center md:justify-start">
                 <MdMarkEmailUnread className="mr-2" />
                 Email:
               </p>
-              hello@kafupeople.com
+              {CONTACT_EMAIL}
             </a>
           </div>
           <div className="mb-4">
             <a
-              href="https://wa.me/31613913024"
-              className="text-[#C2ABB9]"
+              href={WHATSAPP_URL}
+              className="text-slate-200 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -49,13 +54,13 @@ const ContactSection = () => {
                 <FaWhatsappSquare className="mr-2" />
                 Phone:
               </p>
-              +31 6 13913024
+              {WHATSAPP_DISPLAY}
             </a>
           </div>
           <div className="mb-4">
             <a
-              href="https://www.linkedin.com/company/kafu-people/"
-              className="text-[#C2ABB9]"
+              href={LINKEDIN_URL}
+              className="text-slate-200 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -80,23 +85,23 @@ const ContactSection = () => {
               />
             ) : allowFunctional ? (
               <PopupButton
-                url="https://calendly.com/kafupeople/30min"
+                url={CALENDLY_URL}
                 rootElement={document.getElementById("root")}
                 branding
-                color="#00a2ff"
+                color="4F46E5"
                 pageSettings={{
                   backgroundColor: "ffffff",
                   hideEventTypeDetails: false,
                   hideGdprBanner: true,
                   hideLandingPageDetails: false,
-                  primaryColor: "00a2ff",
+                  primaryColor: "4F46E5",
                   textColor: "4d5055",
                 }}
                 utm={{
                   utmSource: "Web",
                 }}
-                className="flex items-center gap-2 px-6 py-3 bg-[#2563EB] text-cWhite font-semibold rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transition duration-300"
-                text="Book a Meeting!"
+                className="flex items-center gap-2 px-6 py-3 bg-primary text-cWhite font-semibold rounded-lg shadow-md hover:bg-primary-dark hover:shadow-lg transition duration-300"
+                text="Book a Meeting"
               />
             ) : (
               <CookieFeatureFallback
