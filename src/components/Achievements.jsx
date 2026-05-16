@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { HOME_SECTION_CLASS } from "../constants/homeLayout";
+import {
+  DARK_SECTION_GRADIENT,
+  HOME_SECTION_CLASS,
+} from "../constants/homeLayout";
 import {
   FaCogs,
   FaLaptopCode,
@@ -57,7 +60,7 @@ const Achievements = ({ fullViewport = false }) => {
 
   return (
     <section
-      className={`w-full bg-slate-900 text-cWhite px-6 sm:px-10 lg:px-20 font-inter ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-16"}`}
+      className={`w-full ${DARK_SECTION_GRADIENT} text-cWhite px-6 sm:px-10 lg:px-20 font-inter ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-16"}`}
     >
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 text-center">

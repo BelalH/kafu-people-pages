@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaGlobe, FaTasks, FaAward, FaUsers } from "react-icons/fa";
-import { HOME_SECTION_CLASS } from "../constants/homeLayout";
+import {
+  DARK_SECTION_GRADIENT,
+  HOME_SECTION_CLASS,
+} from "../constants/homeLayout";
 
 const AnimatedStats = ({ fullViewport = false }) => {
   const [stats, setStats] = useState({
@@ -77,7 +80,7 @@ const AnimatedStats = ({ fullViewport = false }) => {
   return (
     <section
       id="stats-section"
-      className={`w-full bg-primary font-inter text-cWhite text-center ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-12"}`}
+      className={`w-full ${DARK_SECTION_GRADIENT} font-inter text-cWhite text-center ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-12"}`}
     >
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
         {items.map(({ key, icon: Icon, label }) => (

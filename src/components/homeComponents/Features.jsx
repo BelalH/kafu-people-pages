@@ -1,7 +1,10 @@
 import { AiFillProduct } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { FaLaptopCode } from "react-icons/fa";
-import { HOME_SECTION_CLASS } from "../../constants/homeLayout";
+import {
+  DARK_SECTION_GRADIENT,
+  HOME_SECTION_CLASS,
+} from "../../constants/homeLayout";
 
 const cards = [
   {
@@ -27,7 +30,7 @@ const cards = [
 const Features = () => {
   return (
     <section
-      className={`bg-primary text-cWhite py-8 px-4 sm:px-8 lg:px-32 font-inter ${HOME_SECTION_CLASS}`}
+      className={`${DARK_SECTION_GRADIENT} text-cWhite py-8 px-4 sm:px-8 lg:px-32 font-inter ${HOME_SECTION_CLASS}`}
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
         {cards.map((card) => (
