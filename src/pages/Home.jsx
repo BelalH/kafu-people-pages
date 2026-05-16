@@ -6,7 +6,6 @@ import ServicesSection from "../components/homeComponents/ServicesSection";
 import TrainingPrograms from "../components/homeComponents/TrainingPrograms";
 import AnimatedStats from "../components/AnimatedStats";
 import Testimonials from "../components/homeComponents/Testimonials";
-import NewsletterSignup from "../components/NewsletterSignup";
 
 const Home = () => {
   const seo = PAGE_SEO.home;
@@ -24,7 +23,6 @@ const Home = () => {
       <ServicesSection />
       <Testimonials />
       <TrainingPrograms />
-      <NewsletterSignup />
     </>
   );
 };
