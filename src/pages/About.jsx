@@ -7,7 +7,7 @@ import AnimatedStats from "../components/AnimatedStats";
 import OurValue from "../components/aboutComponenets/OurValue";
 import Achievements from "../components/Achievements";
 import Testimonials from "../components/homeComponents/Testimonials";
-import CTABanner from "../components/homeComponents/CTABanner";
+import CtaFooterBlock from "../components/homeComponents/CtaFooterBlock";
 
 const About = () => {
   const seo = PAGE_SEO.about;
@@ -26,7 +26,7 @@ const About = () => {
       <OurValue />
       <Achievements />
       <Testimonials />
-      <CTABanner />
+      <CtaFooterBlock />
     </>
   );
 };

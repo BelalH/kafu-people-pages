@@ -8,8 +8,7 @@ import Achievements from "../components/Achievements";
 import TrainingPrograms from "../components/homeComponents/TrainingPrograms";
 import AnimatedStats from "../components/AnimatedStats";
 import Testimonials from "../components/homeComponents/Testimonials";
-import CTABanner from "../components/homeComponents/CTABanner";
-import HomeNewsletterFooter from "../components/homeComponents/HomeNewsletterFooter";
+import CtaFooterBlock from "../components/homeComponents/CtaFooterBlock";
 
 const Home = () => {
   const seo = PAGE_SEO.home;
@@ -42,8 +41,7 @@ const Home = () => {
       <Testimonials />
       <Achievements fullViewport />
       <TrainingPrograms />
-      <CTABanner fullViewport />
-      <HomeNewsletterFooter />
+      <CtaFooterBlock fullViewport />
     </>
   );
 };

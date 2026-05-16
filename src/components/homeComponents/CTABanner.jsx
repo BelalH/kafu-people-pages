@@ -1,14 +1,24 @@
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
 import {
-  DARK_SECTION_GRADIENT,
   HOME_SECTION_CLASS,
+  SECTION_ABOVE_FOOTER_BG,
 } from "../../constants/homeLayout";
 
-const CTABanner = ({ fullViewport = false }) => {
+const CTABanner = ({ fullViewport = false, bare = false, className = "" }) => {
+  const background = bare ? "" : SECTION_ABOVE_FOOTER_BG;
+  const viewportLayout =
+    fullViewport && !bare
+      ? `py-8 ${HOME_SECTION_CLASS}`
+      : fullViewport
+        ? "py-8"
+        : bare
+          ? "pt-16 pb-8"
+          : "py-16";
+
   return (
     <section
-      className={`${DARK_SECTION_GRADIENT} px-4 sm:px-8 lg:px-24 font-inter ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-16"}`}
+      className={`${background} px-4 sm:px-8 lg:px-24 font-inter ${viewportLayout} ${className}`.trim()}
     >
       <div className="max-w-4xl mx-auto text-center text-white">
         <h2 className="text-2xl sm:text-3xl font-bold mb-4">

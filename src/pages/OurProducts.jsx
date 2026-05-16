@@ -2,7 +2,7 @@ import PageSEO from "../components/PageSEO";
 import { PAGE_SEO } from "../config/seo";
 import ProductsSection from "../components/ourProducts/ProductsSection";
 import ProductsCategories from "../components/ourProducts/ProductsCategories";
-import CTABanner from "../components/homeComponents/CTABanner";
+import CtaFooterBlock from "../components/homeComponents/CtaFooterBlock";
 
 const OurProducts = () => {
   const seo = PAGE_SEO.portfolio;
@@ -16,7 +16,7 @@ const OurProducts = () => {
       />
       <ProductsSection />
       <ProductsCategories />
-      <CTABanner />
+      <CtaFooterBlock />
     </>
   );
 };

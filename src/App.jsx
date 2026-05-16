@@ -34,7 +34,9 @@ import { CookieConsentProvider } from "./context/CookieConsentProvider";
 
 function AppShell() {
   const { pathname } = useLocation();
-  const footerOutsideHome = pathname !== "/";
+  const routesWithCtaFooter = ["/about", "/portfolio", "/services"];
+  const footerOutsideHome =
+    pathname !== "/" && !routesWithCtaFooter.includes(pathname);
 
   return (
     <>

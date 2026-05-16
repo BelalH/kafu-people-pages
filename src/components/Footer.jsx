@@ -17,6 +17,7 @@ import {
   WHATSAPP_DISPLAY,
   LINKEDIN_URL,
 } from "../constants/site";
+import { DARK_SECTION_GRADIENT } from "../constants/homeLayout";
 import { NewsletterSubscribeForm } from "./NewsletterSignup";
 
 const columnClass = "min-w-0 w-full";
@@ -29,18 +30,17 @@ const footerGridClass =
 const headingClass = "text-base sm:text-lg font-bold mb-3 sm:mb-4 text-white";
 const listClass = "space-y-2 text-xs sm:text-sm text-slate-200";
 
-const Footer = ({ embedded = false }) => {
+const Footer = ({ embedded = false, bare = false, compactBottom = false }) => {
   const { openCustomize } = useCookieConsent();
   const year = new Date().getFullYear();
+  const verticalPadding = compactBottom
+    ? "pt-10 pb-3 sm:pt-12 sm:pb-4"
+    : "pt-10 pb-5 sm:pt-12 sm:pb-6";
 
   return (
     <footer
-      className={`relative text-cWhite py-10 sm:py-12 font-inter bg-slate-950 ${embedded ? "mt-auto shrink-0 w-full border-t border-slate-800/80" : ""}`}
+      className={`relative text-cWhite font-inter ${verticalPadding} ${bare ? "" : DARK_SECTION_GRADIENT} ${embedded ? "mt-auto shrink-0 w-full" : ""}`}
     >
-      <div
-        className="absolute inset-0 bg-gradient-to-br from-slate-950 via-primary-dark/40 to-slate-900"
-        aria-hidden
-      />
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className={footerGridClass}>
           <div className={brandColumnClass}>
@@ -150,10 +150,14 @@ const Footer = ({ embedded = false }) => {
         </div>
       </div>
 
-      <div className="relative z-10 border-t border-slate-700 mt-10 pt-6 text-center text-sm text-slate-300">
+      <div
+        className={`relative z-10 border-t border-white/10 text-center text-sm text-slate-300 ${
+          compactBottom ? "mt-7 pt-4 pb-1" : "mt-8 pt-5 pb-1"
+        }`}
+      >
         <p>Kafu People © {year}. All rights reserved.</p>
         <nav
-          className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
+          className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
           aria-label="Legal and cookie preferences"
         >
           <Link

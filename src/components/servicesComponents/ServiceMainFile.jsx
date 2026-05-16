@@ -2,7 +2,7 @@ import PageSEO from "../PageSEO";
 import { PAGE_SEO } from "../../config/seo";
 import Cyber from "./Cyber";
 import CyberService from "./CyberService";
-import CTABanner from "../homeComponents/CTABanner";
+import CtaFooterBlock from "../homeComponents/CtaFooterBlock";
 
 export default function ServiceMainFile() {
   const seo = PAGE_SEO.services;
@@ -16,7 +16,7 @@ export default function ServiceMainFile() {
       />
       <Cyber />
       <CyberService />
-      <CTABanner />
+      <CtaFooterBlock />
     </div>
   );
 }
