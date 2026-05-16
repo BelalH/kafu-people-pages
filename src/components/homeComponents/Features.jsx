@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { FaLaptopCode } from "react-icons/fa";
 import {
   DARK_SECTION_GRADIENT,
-  HOME_SECTION_CLASS,
+  HOME_SECTION_SNAP,
 } from "../../constants/homeLayout";
 
-const cards = [
+const items = [
   {
     id: 1,
     icon: <AiFillProduct />,
@@ -30,25 +30,25 @@ const cards = [
 const Features = () => {
   return (
     <section
-      className={`${DARK_SECTION_GRADIENT} text-cWhite py-8 px-4 sm:px-8 lg:px-32 font-inter ${HOME_SECTION_CLASS}`}
+      className={`w-full ${DARK_SECTION_GRADIENT} text-cWhite font-inter ${HOME_SECTION_SNAP} py-14 px-4 sm:px-8`}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-        {cards.map((card) => (
+      <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-10 sm:gap-12">
+        {items.map((item) => (
           <Link
-            key={card.id}
-            to={card.link}
-            className="bg-cWhite text-slate-900 rounded-xl w-full shadow-lg py-6 px-8 text-center transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between min-h-[320px] no-underline border border-slate-100"
+            key={item.id}
+            to={item.link}
+            className="group flex flex-col items-center text-center px-4 py-6 no-underline transition hover:opacity-95"
           >
-            <div>
-              <div className="text-4xl sm:text-5xl mb-4 text-primary flex items-center justify-center">
-                {card.icon}
-              </div>
-              <h3 className="text-lg font-bold mb-4">{card.title}</h3>
-              <p className="text-sm sm:text-base text-muted">{card.description}</p>
+            <div className="text-4xl sm:text-5xl mb-4 text-primary-light flex items-center justify-center">
+              {item.icon}
             </div>
-            <div className="text-primary mt-6 text-sm font-bold flex items-center justify-center gap-2">
-              {card.cta} <span aria-hidden>→</span>
-            </div>
+            <h3 className="text-lg font-bold mb-3 text-white">{item.title}</h3>
+            <p className="text-sm sm:text-base text-slate-200 mb-6">
+              {item.description}
+            </p>
+            <span className="text-sm font-semibold text-primary-light group-hover:text-white transition-colors">
+              {item.cta} →
+            </span>
           </Link>
         ))}
       </div>

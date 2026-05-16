@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { HOME_SECTION_CLASS } from "../../constants/homeLayout";
+import { HOME_HERO_CLASS } from "../../constants/homeLayout";
 
 export default function Hero() {
   return (
     <section
-      className={`bg-white w-full py-8 font-inter px-6 sm:px-10 lg:px-16 xl:px-32 ${HOME_SECTION_CLASS}`}
+      className={`bg-white w-full py-8 font-inter px-6 sm:px-10 lg:px-16 xl:px-32 ${HOME_HERO_CLASS}`}
     >
       <div className="container mx-auto flex justify-center">
         <div className="w-full max-w-3xl text-center">

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { FaGlobe, FaTasks, FaAward, FaUsers } from "react-icons/fa";
 import {
   DARK_SECTION_GRADIENT,
-  HOME_SECTION_CLASS,
+  HOME_SECTION_SNAP,
 } from "../constants/homeLayout";
 
-const AnimatedStats = ({ fullViewport = false }) => {
+/** @param flat — home: full-width gradient bar, no rounded card wrapper */
+const AnimatedStats = ({ flat = false }) => {
   const [stats, setStats] = useState({
     clients: 0,
     projects: 0,
@@ -77,22 +78,37 @@ const AnimatedStats = ({ fullViewport = false }) => {
     { key: "team", icon: FaUsers, label: "Professional Team" },
   ];
 
+  const grid = (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
+      {items.map(({ key, icon: Icon, label }) => (
+        <div key={key} className="flex flex-col items-center">
+          <Icon size={40} className="mb-4 text-primary-light opacity-90" />
+          <h3 className="text-3xl md:text-[42px] font-bold">
+            {Math.round(stats[key])}+
+          </h3>
+          <p className="text-sm md:text-base text-slate-200">{label}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  if (flat) {
+    return (
+      <section
+        id="stats-section"
+        className={`w-full ${DARK_SECTION_GRADIENT} font-inter text-cWhite text-center ${HOME_SECTION_SNAP} py-12 px-4 sm:px-6`}
+      >
+        <div className="max-w-6xl mx-auto">{grid}</div>
+      </section>
+    );
+  }
+
   return (
     <section
       id="stats-section"
-      className={`w-full ${DARK_SECTION_GRADIENT} font-inter text-cWhite text-center ${fullViewport ? `py-8 ${HOME_SECTION_CLASS}` : "py-12"}`}
+      className={`w-full ${DARK_SECTION_GRADIENT} font-inter text-cWhite text-center py-12`}
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
-        {items.map(({ key, icon: Icon, label }) => (
-          <div key={key} className="flex flex-col items-center">
-            <Icon size={40} className="mb-4 text-primary-light opacity-90" />
-            <h3 className="text-3xl md:text-[42px] font-bold">
-              {Math.round(stats[key])}+
-            </h3>
-            <p className="text-sm md:text-base text-slate-200">{label}</p>
-          </div>
-        ))}
-      </div>
+      <div className="max-w-6xl mx-auto">{grid}</div>
     </section>
   );
 };

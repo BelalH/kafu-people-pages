@@ -36,12 +36,12 @@ const Home = () => {
       />
       <Hero />
       <Features />
-      <AnimatedStats fullViewport />
+      <AnimatedStats flat />
       <ServicesSection />
       <Testimonials />
-      <Achievements fullViewport />
+      <Achievements flat />
       <TrainingPrograms />
-      <CtaFooterBlock fullViewport />
+      <CtaFooterBlock />
     </>
   );
 };

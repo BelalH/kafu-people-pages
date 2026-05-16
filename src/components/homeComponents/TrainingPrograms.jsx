@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HOME_SECTION_CLASS } from "../../constants/homeLayout";
+import { HOME_SECTION_SNAP } from "../../constants/homeLayout";
 
 const topics = [
   "Artificial Intelligence",
@@ -10,7 +10,7 @@ const topics = [
 const TrainingPrograms = () => {
   return (
     <section
-      className={`bg-white py-8 px-4 font-inter border-t border-slate-100 ${HOME_SECTION_CLASS}`}
+      className={`bg-white py-12 px-4 font-inter border-t border-slate-100 ${HOME_SECTION_SNAP}`}
     >
       <div className="max-w-3xl mx-auto text-center px-4">
         <span className="inline-block rounded-full bg-accent/10 text-accent px-4 py-1 text-sm font-semibold mb-4">
