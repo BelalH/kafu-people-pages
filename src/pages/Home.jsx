@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import PageSEO from "../components/PageSEO";
+import usePageScrollSnap from "../hooks/usePageScrollSnap";
 import { PAGE_SEO } from "../config/seo";
 import Hero from "../components/homeComponents/Hero";
 import Features from "../components/homeComponents/Features";
@@ -13,19 +13,7 @@ import CtaFooterBlock from "../components/homeComponents/CtaFooterBlock";
 const Home = () => {
   const seo = PAGE_SEO.home;
 
-  useEffect(() => {
-    const html = document.documentElement;
-    html.classList.add("scroll-smooth", "snap-y", "snap-mandatory", "scroll-pt-[72px]", "sm:scroll-pt-20");
-    return () => {
-      html.classList.remove(
-        "scroll-smooth",
-        "snap-y",
-        "snap-mandatory",
-        "scroll-pt-[72px]",
-        "sm:scroll-pt-20",
-      );
-    };
-  }, []);
+  usePageScrollSnap();
 
   return (
     <>

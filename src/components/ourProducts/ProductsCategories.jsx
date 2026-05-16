@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Loader from "../Loader";
+import { FULL_VIEWPORT_SNAP_SECTION } from "../../constants/homeLayout";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -105,16 +106,15 @@ const ProductsCategories = () => {
   }, [filteredProducts, currentPage, itemsPerPage]);
 
   return (
-    <div className="w-full p-4 sm:p-6 md:p-8 lg:mx-24 font-inter">
+    <section
+      className={`flex w-full shrink-0 flex-col justify-center font-inter ${FULL_VIEWPORT_SNAP_SECTION}`}
+    >
       {loading ? (
         <Loader />
       ) : (
-        <>
-          {" "}
-          <div className="block lg:hidden mb-4">
-            <h3 className="text-lg font-bold text-cDarkBlue mb-2 m-6">
-              Categories :
-            </h3>
+        <div className="flex flex-1 flex-col px-4 py-6 sm:px-6 sm:py-8 lg:px-10 xl:px-14">
+          <div className="mb-4 lg:hidden">
+            <h3 className="mb-2 text-lg font-bold text-cDarkBlue">Categories</h3>
             <div className="flex gap-4 overflow-x-auto no-scrollbar">
               {categories.map((category) => (
                 <button
@@ -134,9 +134,9 @@ const ProductsCategories = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start">
-            <div className="flex flex-col w-full  lg:w-1/4 p-4 rounded-lg">
-              <div className="hidden lg:block ">
+          <div className="flex min-h-0 flex-1 flex-col items-stretch gap-6 lg:flex-row lg:gap-10">
+            <aside className="w-full shrink-0 lg:w-64 xl:w-72 lg:py-2">
+              <div className="hidden lg:block">
                 <h3 className="text-lg font-bold text-cDarkBlue mb-4">
                   Categories:
                 </h3>
@@ -162,18 +162,18 @@ const ProductsCategories = () => {
                   </label>
                 ))}
               </div>
-            </div>
+            </aside>
 
-            <div className="flex-1">
-              <div className="space-y-8">
+            <div className="flex min-h-0 w-full min-w-0 flex-1 flex-col">
+              <div className="flex flex-1 flex-col justify-center gap-8">
                 {Array.isArray(paginatedProducts) &&
                   paginatedProducts.map((product) => (
                     <div
                       key={product.product_id || product._id}
-                      className="flex flex-col md:flex-row items-center bg-cWhite rounded-2xl shadow-lg hover:shadow-CPurple hover:shadow-lg transition-all duration-300 overflow-hidden"
+                      className="flex w-full flex-col items-stretch overflow-hidden rounded-2xl bg-cWhite shadow-lg transition-all duration-300 hover:shadow-CPurple hover:shadow-lg md:flex-row md:items-center"
                     >
                       {/* Left Side - Text Content */}
-                      <div className="group relative w-full md:w-1/3 lg:w-[320px] h-56 sm:h-64 lg:h-80 flex-shrink-0">
+                      <div className="group relative h-56 w-full shrink-0 sm:h-64 md:w-[38%] md:max-w-md lg:h-72 xl:h-80">
                         <img
                           src={`${product.image}`}
                           alt={""}
@@ -193,7 +193,7 @@ const ProductsCategories = () => {
                           </div>
                         )}
                       </div>
-                      <div className="w-full md:w-2/3 p-6 flex flex-col justify-center">
+                      <div className="flex w-full min-w-0 flex-1 flex-col justify-center p-6 md:p-8">
                         <h3 className="text-2xl font-bold text-cDarkBlue mb-2">
                           {product.name}
                         </h3>
@@ -227,9 +227,9 @@ const ProductsCategories = () => {
               )}
             </div>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </section>
   );
 };
 

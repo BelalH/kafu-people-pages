@@ -1,10 +1,12 @@
 import React from "react";
 import service from "../../assets/images/service/service.jpg";
+import { FULL_VIEWPORT_SNAP_SECTION } from "../../constants/homeLayout";
 
 function Cyber() {
   return (
-    <>
-      <div className="relative flex min-h-[calc(100dvh-72px)] w-full items-center bg-gray-800 font-inter sm:min-h-[calc(100dvh-80px)]">
+    <section
+      className={`relative flex w-full items-center bg-gray-800 font-inter ${FULL_VIEWPORT_SNAP_SECTION}`}
+    >
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-bottom"
@@ -25,8 +27,7 @@ function Cyber() {
             business websites.
           </p>
         </div>
-      </div>
-    </>
+    </section>
   );
 }
 

@@ -1,6 +1,10 @@
 /** Scroll-snap section without forcing full viewport height. */
 export const HOME_SECTION_SNAP = "snap-start snap-always";
 
+/** Full viewport below fixed header + scroll snap (services/portfolio heroes). */
+export const FULL_VIEWPORT_SNAP_SECTION =
+  "snap-start snap-always shrink-0 min-h-[calc(100dvh-72px)] sm:min-h-[calc(100dvh-80px)]";
+
 /** Full-viewport hero (only section that should fill the screen). */
 export const HOME_HERO_CLASS =
   "min-h-screen snap-start snap-always flex flex-col justify-center";

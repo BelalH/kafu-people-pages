@@ -51,6 +51,7 @@ import {
 } from "react-icons/md";
 import { SiTensorflow, SiLangchain } from "react-icons/si";
 import { GiArtificialIntelligence } from "react-icons/gi";
+import { HOME_SECTION_SNAP } from "../../constants/homeLayout";
 
 const services = [
   {
@@ -201,7 +202,7 @@ const services = [
 
 const CyberService = () => {
   return (
-    <div className="bg-cWhite py-10 px-4 md:px-8 lg:px-16 font-inter">
+    <section className={`bg-cWhite py-10 px-4 md:px-8 lg:px-16 font-inter ${HOME_SECTION_SNAP}`}>
       {/* Header */}
       <div className="text-center mb-8">
         <h2 className="text-2xl md:text-4xl font-bold text-cBlack mb-4">
@@ -241,7 +242,7 @@ const CyberService = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,14 +1,16 @@
 import PageSEO from "../PageSEO";
 import { PAGE_SEO } from "../../config/seo";
+import usePageScrollSnap from "../../hooks/usePageScrollSnap";
 import Cyber from "./Cyber";
 import CyberService from "./CyberService";
 import CtaFooterBlock from "../homeComponents/CtaFooterBlock";
 
 export default function ServiceMainFile() {
   const seo = PAGE_SEO.services;
+  usePageScrollSnap();
 
   return (
-    <div>
+    <>
       <PageSEO
         title={seo.title}
         description={seo.description}
@@ -17,6 +19,6 @@ export default function ServiceMainFile() {
       <Cyber />
       <CyberService />
       <CtaFooterBlock />
-    </div>
+    </>
   );
 }
