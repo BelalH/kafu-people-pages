@@ -4,7 +4,7 @@ import service from "../../assets/images/service/service.jpg";
 function Cyber() {
   return (
     <>
-      <div className="relative w-full h-[400px] bg-gray-800 flex items-center font-inter">
+      <div className="relative flex min-h-[calc(100dvh-72px)] w-full items-center bg-gray-800 font-inter sm:min-h-[calc(100dvh-80px)]">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-bottom"
@@ -17,7 +17,7 @@ function Cyber() {
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
         {/* Text Section */}
-        <div className="relative z-10 text-cWhite text-left ml-16 px-6 max-w-lg w-full">
+        <div className="relative z-10 w-full max-w-lg px-6 py-12 text-left text-cWhite sm:ml-16 lg:ml-24">
           <h1 className="text-5xl font-bold mb-4">Our Services</h1>
           <p className="text-lg leading-relaxed">
             Turn your vision into reality with intelligent AI agents,
