@@ -4,18 +4,18 @@ import BookMeetingButton from "../ui/BookMeetingButton";
 export default function Hero() {
   return (
     <section className="bg-white w-full py-12 sm:py-16 font-inter px-6 sm:px-10 lg:px-16 xl:px-32">
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-8 lg:gap-12">
-        <div className="w-full flex justify-center lg:flex-1 lg:max-w-xl shrink-0">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-10 lg:gap-16">
+        <div className="w-full lg:flex-1 lg:min-w-0 flex justify-center lg:justify-end">
           <img
             src="/images/hero.webp"
             alt="Kafu People — technology solutions for growing businesses"
-            className="w-full max-w-[240px] sm:max-w-[320px] lg:max-w-md h-auto object-contain"
+            className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-contain"
             loading="eager"
             decoding="async"
           />
         </div>
 
-        <div className="w-full text-center lg:text-left lg:max-w-xl lg:flex-1">
+        <div className="w-full text-center lg:text-left lg:flex-1 lg:max-w-2xl">
           <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
             Amsterdam · Remote worldwide
           </p>
