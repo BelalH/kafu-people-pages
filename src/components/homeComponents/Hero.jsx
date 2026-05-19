@@ -8,7 +8,7 @@ export default function Hero() {
         <div className="w-full lg:flex-1 lg:min-w-0 flex justify-center lg:justify-end">
           <img
             src="/images/hero.webp"
-            alt="Kafu People — technology solutions for growing businesses"
+            alt="Illustration of AI, cloud, DevOps, and full-stack development for growing businesses"
             className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-contain"
             loading="eager"
             decoding="async"
