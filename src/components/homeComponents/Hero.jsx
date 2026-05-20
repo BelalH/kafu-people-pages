@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
+import { HERO_FLUSH_CLASS } from "../../constants/layout";
 
 export default function Hero() {
   return (
-    <section className="bg-white w-full py-12 sm:py-16 font-inter px-6 sm:px-10 lg:px-16 xl:px-32">
+    <section
+      className={`box-border w-full bg-white px-6 pb-12 pt-[88px] font-inter sm:px-10 sm:pb-16 sm:pt-[96px] lg:px-16 xl:px-32 ${HERO_FLUSH_CLASS}`}
+    >
       <div className="container mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-10 lg:gap-16">
         <div className="w-full lg:flex-1 lg:min-w-0 flex justify-center lg:justify-end">
           <img

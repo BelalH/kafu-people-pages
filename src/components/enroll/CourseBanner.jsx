@@ -1,10 +1,10 @@
 import React from "react";
-
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 
 function CourseBanner() {
   return (
     <div
-      className="relative w-full h-[500px] bg-cover bg-center  flex items-center font-inter text-cWhite"
+      className={`relative box-border flex h-[500px] w-full items-center bg-cover bg-center font-inter text-cWhite ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
       style={{
         backgroundImage: "url('/images/enroll/enroll.svg')", // Replace with the actual path to your image
       }}

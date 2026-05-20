@@ -5,6 +5,7 @@ import blogsection from "../../assets/images/blogs/blogSection.jpg";
 import Loader from "../Loader";
 import PageSEO from "../PageSEO";
 import { PAGE_SEO } from "../../config/seo";
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const BlogSection = () => {
   const [blogs, setBlogs] = useState([]); // Store fetched blogs
@@ -59,11 +60,11 @@ const BlogSection = () => {
       ) : (
         <>
           <div
-            className="relative lg:h-[80vh] h-[60vh] font-inter text-center text-cWhite bg-cover bg-center  lg:opacity-100 sm:opacity-15"
+            className={`relative box-border h-[60vh] bg-cover bg-center font-inter text-center text-cWhite lg:h-[80vh] lg:opacity-100 sm:opacity-15 ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
             style={{ backgroundImage: `url(${blogsection})` }}
           >
             <div className="flex flex-col">
-              <h1 className="relative text-4xl sm:text-5xl md:text-6xl lg:text-cWhite text-cWhite text-left lg:ml-24 ml-8 lg:pt-32 pt-44 font-bold z-10 sm:text-cBlack">
+              <h1 className="relative z-10 ml-8 text-left text-4xl font-bold text-cWhite sm:text-5xl md:text-6xl lg:ml-24 lg:text-cWhite sm:text-cBlack">
                 KAFUPEOPLE BLOGS
               </h1>
               <div className=" lg:w-[700px] w-auto ">

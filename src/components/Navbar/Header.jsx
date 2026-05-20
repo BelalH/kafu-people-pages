@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-// ...
+import { HEADER_SPACER_CLASS } from "../../constants/layout";
 import "../../App.css";
 
 const Header = () => {
@@ -8,7 +8,7 @@ const Header = () => {
       <header className="fixed top-0 inset-x-0 z-50">
         <Navbar />
       </header>
-      <div className="h-[73px] sm:h-[81px]" aria-hidden="true" />
+      <div className={HEADER_SPACER_CLASS} aria-hidden="true" />
     </>
   );
 };

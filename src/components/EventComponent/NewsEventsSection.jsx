@@ -1,9 +1,10 @@
 import React from "react";
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 
 const NewsEventsSection = () => {
   return (
     <div
-      className="lg:h-[90vh]  flex items-center justify-center bg-cover bg-center text-center font-inter px-4"
+      className={`box-border flex min-h-[60vh] items-center justify-center bg-cover bg-center px-4 text-center font-inter lg:min-h-[90vh] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
       style={{
         backgroundImage: `url('/images/newsAndEvents/news.svg')`, // Update with the correct path to your image
         backgroundSize: "cover",

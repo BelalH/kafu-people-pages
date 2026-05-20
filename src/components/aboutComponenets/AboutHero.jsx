@@ -1,6 +1,10 @@
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
+
 const AboutHero = () => {
   return (
-    <section className="relative flex w-full min-h-[calc(100dvh-72px)] items-center overflow-hidden font-inter sm:min-h-[calc(100dvh-80px)]">
+    <section
+      className={`relative flex w-full min-h-[100dvh] flex-col justify-center overflow-hidden font-inter box-border ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
+    >
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url(/images/about.webp)" }}

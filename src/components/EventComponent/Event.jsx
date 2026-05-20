@@ -5,6 +5,7 @@ import axios from "axios";
 import { SlCalender } from "react-icons/sl";
 import { CiLocationOn } from "react-icons/ci";
 import AboutEventsImage from "../../assets/images/AboutNewsImage/AboutEvents.svg";
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -32,7 +33,9 @@ const Event = () => {
 
   return (
     <>
-      <div className="relative w-full h-[400px] font-inter sm:h-[500px] lg:h-[600px] bg-gray-800 flex items-center justify-center">
+      <div
+        className={`relative box-border flex h-[400px] w-full items-center justify-center bg-gray-800 font-inter sm:h-[500px] lg:h-[600px] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
+      >
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"

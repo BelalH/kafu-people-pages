@@ -1,10 +1,12 @@
 import React from "react";
-
 import help from "../../assets/images/contactUs/help.png";
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 
 const HelpSection = () => {
   return (
-    <section className="flex flex-col-reverse  lg:flex-row  items-center justify-between px-6 sm:px-12 font-inter lg:px-24 py-12 bg-white">
+    <section
+      className={`flex flex-col-reverse items-center justify-between bg-white px-6 pb-12 font-inter sm:px-12 lg:flex-row lg:px-24 ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
+    >
       {/* Text Section */}
       <div className="text-center lg:text-left lg:max-w-md space-y-4">
         <h2 className="text-3xl sm:text-4xl font-bold ">
