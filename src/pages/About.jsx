@@ -5,7 +5,6 @@ import Vision from "../components/aboutComponenets/Vision";
 import AnimatedStats from "../components/AnimatedStats";
 import OurValue from "../components/aboutComponenets/OurValue";
 import Achievements from "../components/Achievements";
-import Testimonials from "../components/homeComponents/Testimonials";
 import CTABanner from "../components/homeComponents/CTABanner";
 
 const About = () => {
@@ -23,7 +22,6 @@ const About = () => {
       <Vision />
       <OurValue />
       <Achievements />
-      <Testimonials />
       <CTABanner />
     </>
   );
