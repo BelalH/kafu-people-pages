@@ -1,7 +1,6 @@
 import PageSEO from "../components/PageSEO";
 import { PAGE_SEO } from "../config/seo";
-import AboutUs from "../components/aboutComponenets/AboutUs";
-import MissionSection from "../components/aboutComponenets/MissionSection";
+import AboutHero from "../components/aboutComponenets/AboutHero";
 import Vision from "../components/aboutComponenets/Vision";
 import AnimatedStats from "../components/AnimatedStats";
 import OurValue from "../components/aboutComponenets/OurValue";
@@ -19,8 +18,7 @@ const About = () => {
         description={seo.description}
         canonicalPath={seo.canonicalPath}
       />
-      <AboutUs />
-      <MissionSection />
+      <AboutHero />
       <AnimatedStats />
       <Vision />
       <OurValue />
