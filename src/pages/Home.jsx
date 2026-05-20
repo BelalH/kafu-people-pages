@@ -3,11 +3,9 @@ import { PAGE_SEO } from "../config/seo";
 import Hero from "../components/homeComponents/Hero";
 import Features from "../components/homeComponents/Features";
 import ServicesSection from "../components/homeComponents/ServicesSection";
-import Achievements from "../components/Achievements";
 import TrainingPrograms from "../components/homeComponents/TrainingPrograms";
 import AnimatedStats from "../components/AnimatedStats";
 import Testimonials from "../components/homeComponents/Testimonials";
-import CTABanner from "../components/homeComponents/CTABanner";
 import NewsletterSignup from "../components/NewsletterSignup";
 
 const Home = () => {
@@ -25,9 +23,7 @@ const Home = () => {
       <AnimatedStats />
       <ServicesSection />
       <Testimonials />
-      <Achievements />
       <TrainingPrograms />
-      <CTABanner />
       <NewsletterSignup />
     </>
   );
