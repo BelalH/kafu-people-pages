@@ -1,77 +1,91 @@
-import React from "react";
+import {
+  HiOutlineLightBulb,
+  HiOutlineShieldCheck,
+  HiOutlineStar,
+  HiOutlineUserGroup,
+} from "react-icons/hi2";
+import { TbTargetArrow } from "react-icons/tb";
+
+const values = [
+  {
+    title: "Reliability",
+    description:
+      "We build maintainable, secure, and scalable systems businesses can trust long-term.",
+    Icon: HiOutlineShieldCheck,
+  },
+  {
+    title: "Collaboration",
+    description:
+      "We work closely with clients and partners to turn ideas into real products through open communication and shared ownership.",
+    Icon: HiOutlineUserGroup,
+  },
+  {
+    title: "Innovation",
+    description:
+      "We combine modern engineering with practical AI-driven solutions to solve real problems and create meaningful impact.",
+    Icon: HiOutlineLightBulb,
+  },
+  {
+    title: "Excellence",
+    description:
+      "We focus on craftsmanship, clarity, and continuous improvement in everything we build.",
+    Icon: HiOutlineStar,
+  },
+  {
+    title: "Ownership",
+    description:
+      "We take responsibility from architecture to deployment and delivery—treating every project as our own.",
+    Icon: TbTargetArrow,
+  },
+];
 
 const OurValue = () => {
   return (
-    <div className="bg-white py-10 px-6 font-inter">
-      {/* Header Section */}
-      <h2 className="text-2xl font-bold text-cDarkBlue mb-8 text-left max-w-4xl mx-auto">
-        OUR VALUE:
-      </h2>
-
-      {/* Values Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        {/* Left Column */}
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-cDarkBlue">
-              Innovation:
-            </h3>
-            <p className="text-gray-700">
-              We value innovation and originality! We are always looking for
-              innovative ways to apply and implement state-of-the-art
-              technology.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-cDarkBlue">Integrity:</h3>
-            <p className="text-gray-700">
-              We encourage the operation of high ethical standards at all times
-              in order to maintain the spirit of honesty in our relationship
-              with other people and organizations that we are related with.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-cDarkBlue">
-              Collaboration:
-            </h3>
-            <p className="text-gray-700">
-              We subscribe to combined efforts and cooperation in any project,
-              which is vice done in collaboration with the clients.
-            </p>
-          </div>
+    <section className="bg-white px-4 py-14 font-inter sm:px-8 lg:px-16 xl:px-20">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 text-center sm:mb-12">
+          <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            OUR CORE VALUES
+          </p>
+          <h2 className="mx-auto mt-3 max-w-3xl text-2xl font-bold leading-snug text-slate-900 sm:text-3xl lg:text-4xl">
+            Principles that guide how we work and deliver impact.
+          </h2>
+          <span
+            className="mx-auto mt-5 block h-0.5 w-12 rounded-full bg-primary"
+            aria-hidden
+          />
         </div>
-        {/* Right Column */}
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-cDarkBlue">
-              Excellence:
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <div className="flex min-h-[220px] flex-col justify-center rounded-2xl bg-gradient-to-br from-primary to-primary-dark p-6 sm:min-h-[240px] sm:p-8">
+            <h3 className="text-2xl font-bold leading-[1.15] text-cWhite sm:text-3xl lg:text-4xl">
+              Our
+              <br />
+              core
+              <br />
+              values
             </h3>
-            <p className="text-gray-700">
-              We aim at being the best performers in all of our projects with a
-              heightened focus on quality and performance.
-            </p>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold text-cDarkBlue">
-              Empowerment:
-            </h3>
-            <p className="text-gray-700">
-              Once our clients and our team are effectively equipped, trained,
-              strengthened, and supported, we guarantee success all over!
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-cDarkBlue">
-              Customer-Centricity:
-            </h3>
-            <p className="text-gray-700">
-              Our clients remain our focus and we seek to deliver customized
-              solutions to fit the needs and expectations of our clients.
-            </p>
-          </div>
+
+          {values.map(({ title, description, Icon }) => (
+            <article
+              key={title}
+              className="flex min-h-[220px] flex-col rounded-2xl border border-slate-200 bg-white p-6 sm:min-h-[240px] sm:p-8"
+            >
+              <Icon
+                className="mb-4 text-3xl text-primary"
+                strokeWidth={1.5}
+                aria-hidden
+              />
+              <h3 className="mb-3 text-lg font-bold text-slate-900">{title}</h3>
+              <p className="text-sm leading-relaxed text-slate-600 sm:text-base">
+                {description}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
