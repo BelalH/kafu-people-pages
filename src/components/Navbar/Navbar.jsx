@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import MenuItems from "./MenuItems";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import kafupeople from "../../assets/images/kafupeople.webp";
+import { useScrolled } from "../../hooks/useScrolled";
+import { isDarkHeroRoute } from "../../constants/navbar";
 
 const menuItems = [
   { title: "HOME", url: "/" },
@@ -11,8 +13,13 @@ const menuItems = [
   { title: "CONTACT", url: "/contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ isScrolled: isScrolledProp }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isScrolledFromHook = useScrolled(12, pathname);
+  const isScrolled = isScrolledProp ?? isScrolledFromHook;
+  const isSolid = isScrolled || isOpen;
+  const useLightNavText = !isSolid && isDarkHeroRoute(pathname);
 
   const closeMenu = () => setIsOpen(false);
 
@@ -34,7 +41,15 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="relative z-50 py-2 px-4 sm:px-8 md:px-16 lg:px-32 w-full text-sm font-medium bg-cWhite shadow-sm border-b border-slate-200 font-inter">
+    <nav
+      className={`relative z-50 w-full py-2 px-4 text-sm font-medium font-inter transition-all duration-300 sm:px-8 md:px-16 lg:px-32 ${
+        isSolid
+          ? "border-b border-slate-200 bg-cWhite text-slate-900 shadow-sm"
+          : `border-0 bg-transparent shadow-none ${
+              useLightNavText ? "text-cWhite" : "text-slate-900"
+            }`
+      } ${!isSolid && useLightNavText ? "[&_.menu-items>a:hover]:bg-white/10 [&_.menu-items>button:hover]:bg-white/10" : ""}`}
+    >
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="shrink-0 flex items-center" onClick={closeMenu}>
           <img
@@ -47,7 +62,9 @@ const Navbar = () => {
         <div className="lg:hidden">
           <button
             type="button"
-            className="text-slate-900 focus:outline-none text-2xl font-bold p-2"
+            className={`focus:outline-none p-2 text-2xl font-bold ${
+              isSolid ? "text-slate-900" : useLightNavText ? "text-cWhite" : "text-slate-900"
+            }`}
             onClick={() => setIsOpen((open) => !open)}
             aria-expanded={isOpen}
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -69,7 +86,7 @@ const Navbar = () => {
         <>
           <button
             type="button"
-            className="lg:hidden fixed inset-0 top-[72px] sm:top-[80px] z-40 bg-slate-900/40"
+            className="lg:hidden fixed inset-0 top-[64px] sm:top-[72px] z-40 bg-slate-900/40"
             aria-label="Close menu"
             onClick={closeMenu}
           />

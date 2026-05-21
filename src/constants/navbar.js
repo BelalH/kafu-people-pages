@@ -1,0 +1,17 @@
+/** Routes where the first screen under the nav is a dark hero (light nav text at top). */
+const DARK_HERO_PATHS = new Set([
+  "/",
+  "/about",
+  "/services",
+  "/portfolio",
+  "/newsAndEvents",
+  "/blogSection",
+  "/ProductsCategories",
+]);
+
+const DARK_HERO_PREFIXES = ["/event/", "/training/"];
+
+export function isDarkHeroRoute(pathname) {
+  if (DARK_HERO_PATHS.has(pathname)) return true;
+  return DARK_HERO_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+}
