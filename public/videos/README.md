@@ -16,4 +16,8 @@ Cloudflare Pages allows **at most 25 MiB per file**. Do not commit videos larger
    - `VITE_HERO_VIDEO_URL` = `https://your-cdn.example.com/hero.mp4`
 3. Do not commit large `hero.mp4` files to git (see `.gitignore`)
 
-The home hero uses `hero.webp` as a poster/fallback when the video is unavailable.
+## Streamable (current default)
+
+The home hero embeds [kafu-people-hero on Streamable](https://streamable.com/mueba1). Override with `VITE_HERO_VIDEO_URL` if needed.
+
+The hero keeps `hero.webp` as a poster behind the embed.

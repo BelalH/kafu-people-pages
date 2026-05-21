@@ -2,19 +2,53 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
 import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
-import { HERO_POSTER_SRC, HERO_VIDEO_SRC } from "../../constants/media";
+import {
+  HERO_POSTER_SRC,
+  HERO_VIDEO_URL,
+  getDirectVideoSrc,
+  getStreamableEmbedUrl,
+  isStreamableUrl,
+} from "../../constants/media";
 
 export default function Hero() {
   const [videoFailed, setVideoFailed] = useState(false);
-  const showVideo = HERO_VIDEO_SRC && !videoFailed;
+  const streamableEmbed = isStreamableUrl(HERO_VIDEO_URL)
+    ? getStreamableEmbedUrl(HERO_VIDEO_URL)
+    : null;
+  const directVideoSrc = getDirectVideoSrc(HERO_VIDEO_URL);
+  const showStreamable = streamableEmbed && !videoFailed;
+  const showDirectVideo = directVideoSrc && !videoFailed;
 
   return (
     <section
       className={`relative box-border flex min-h-[90dvh] w-full flex-col justify-center overflow-hidden font-inter sm:min-h-[95dvh] lg:min-h-[100dvh] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
     >
-      {showVideo ? (
+      <img
+        src={HERO_POSTER_SRC}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+        aria-hidden
+      />
+
+      {showStreamable ? (
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
+          aria-hidden
+        >
+          <iframe
+            src={streamableEmbed}
+            title=""
+            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
+            allow="autoplay; fullscreen"
+            loading="eager"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      ) : null}
+
+      {showDirectVideo ? (
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 z-[1] h-full w-full object-cover"
           autoPlay
           muted
           loop
@@ -23,17 +57,11 @@ export default function Hero() {
           aria-hidden
           onError={() => setVideoFailed(true)}
         >
-          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+          <source src={directVideoSrc} type="video/mp4" />
         </video>
-      ) : (
-        <img
-          src={HERO_POSTER_SRC}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-          aria-hidden
-        />
-      )}
-      <div className="absolute inset-0 bg-black/50" aria-hidden />
+      ) : null}
+
+      <div className="absolute inset-0 z-[2] bg-black/50" aria-hidden />
 
       <div className="relative z-10 w-full px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24 xl:px-32">
         <div className="container mx-auto flex flex-1 flex-col justify-center py-8 lg:py-12">
