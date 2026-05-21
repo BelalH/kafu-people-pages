@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
-import { HERO_FLUSH_CLASS } from "../../constants/layout";
+import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 
 export default function Hero() {
   return (
     <section
-      className={`box-border w-full bg-white px-6 pb-12 pt-[88px] font-inter sm:px-10 sm:pb-16 sm:pt-[96px] lg:px-16 xl:px-32 ${HERO_FLUSH_CLASS}`}
+      className={`box-border flex min-h-[90dvh] w-full flex-col justify-center bg-white px-6 pb-16 font-inter sm:min-h-[95dvh] sm:px-10 sm:pb-20 lg:min-h-[100dvh] lg:px-16 lg:pb-24 xl:px-32 ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
     >
-      <div className="container mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-10 lg:gap-16">
+      <div className="container mx-auto flex flex-1 flex-col-reverse items-center justify-center gap-10 py-8 lg:flex-row-reverse lg:gap-16 lg:py-12">
         <div className="w-full lg:flex-1 lg:min-w-0 flex justify-center lg:justify-end">
           <img
             src="/images/hero.webp"
             alt="Illustration of AI, cloud, DevOps, and full-stack development for growing businesses"
-            className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-contain"
+            className="h-auto w-full max-w-sm object-contain sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl"
             loading="eager"
             decoding="async"
           />
