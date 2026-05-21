@@ -4,17 +4,17 @@ import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 const ProductsSection = () => {
   return (
     <section
-      className={`relative flex min-h-[55vh] w-full flex-col justify-center overflow-hidden font-inter box-border lg:min-h-[70vh] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
+      className={`relative box-border flex min-h-[100dvh] w-full flex-col justify-center overflow-hidden font-inter ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
     >
       <img
         src={product}
         alt="Our Products"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover brightness-110"
       />
-      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(35,26,26,0.75),rgba(35,26,26,0.75))]" />
+      <div className="absolute inset-0 bg-black/30" />
 
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16">
-        <div className="mx-auto w-full max-w-4xl rounded-2xl bg-black/35 p-6 text-center sm:p-8">
+        <div className="mx-auto w-full max-w-4xl rounded-2xl bg-black/20 p-6 text-center sm:p-8">
           <h2 className="mb-4 text-center text-2xl font-extrabold text-cWhite sm:text-4xl lg:text-5xl">
             Innovative Products by{" "}
             <span className="text-cWhite">KAFUPEOPLE</span>
