@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
 import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
@@ -6,18 +6,30 @@ import {
   HERO_POSTER_SRC,
   HERO_VIDEO_URL,
   getDirectVideoSrc,
-  getStreamableEmbedUrl,
   isStreamableUrl,
 } from "../../constants/media";
+import { useStreamableMp4 } from "../../hooks/useStreamableMp4";
 
 export default function Hero() {
-  const [videoFailed, setVideoFailed] = useState(false);
-  const streamableEmbed = isStreamableUrl(HERO_VIDEO_URL)
-    ? getStreamableEmbedUrl(HERO_VIDEO_URL)
-    : null;
+  const [directVideoFailed, setDirectVideoFailed] = useState(false);
+  const [playbackFailed, setPlaybackFailed] = useState(false);
+  const isStreamable = isStreamableUrl(HERO_VIDEO_URL);
+  const { src: streamableSrc, failed: streamableFailed } = useStreamableMp4(
+    isStreamable ? HERO_VIDEO_URL : null
+  );
   const directVideoSrc = getDirectVideoSrc(HERO_VIDEO_URL);
-  const showStreamable = streamableEmbed && !videoFailed;
-  const showDirectVideo = directVideoSrc && !videoFailed;
+
+  const videoSrc = isStreamable ? streamableSrc : directVideoSrc;
+  const videoUnavailable =
+    (isStreamable && streamableFailed) ||
+    (directVideoSrc && directVideoFailed) ||
+    (!isStreamable && !directVideoSrc);
+  const showVideo = videoSrc && !videoUnavailable && !playbackFailed;
+
+  useEffect(() => {
+    setPlaybackFailed(false);
+    setDirectVideoFailed(false);
+  }, [videoSrc]);
 
   return (
     <section
@@ -26,28 +38,15 @@ export default function Hero() {
       <img
         src={HERO_POSTER_SRC}
         alt=""
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+          showVideo ? "opacity-0" : "opacity-100"
+        }`}
         aria-hidden
       />
 
-      {showStreamable ? (
-        <div
-          className="pointer-events-none absolute inset-0 z-[1] overflow-hidden"
-          aria-hidden
-        >
-          <iframe
-            src={streamableEmbed}
-            title=""
-            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
-            allow="autoplay; fullscreen"
-            loading="eager"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-      ) : null}
-
-      {showDirectVideo ? (
+      {showVideo ? (
         <video
+          key={videoSrc}
           className="absolute inset-0 z-[1] h-full w-full object-cover"
           autoPlay
           muted
@@ -55,9 +54,12 @@ export default function Hero() {
           playsInline
           poster={HERO_POSTER_SRC}
           aria-hidden
-          onError={() => setVideoFailed(true)}
+          onError={() => {
+            setPlaybackFailed(true);
+            setDirectVideoFailed(true);
+          }}
         >
-          <source src={directVideoSrc} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
         </video>
       ) : null}
 
