@@ -91,6 +91,17 @@ Preview the production build:
 npm run preview
 ```
 
+The build runs `check-pages-asset-size` so any file over **25 MiB** fails early (Cloudflare Pages limit).
+
+### Cloudflare Pages + hero video
+
+| Approach | Steps |
+| -------- | ----- |
+| **Compress** | Run `.\scripts\compress-hero-video.ps1` (requires ffmpeg), keep `hero.mp4` under 25 MB, then `git add -f public/videos/hero.mp4` |
+| **R2 / CDN** | Upload video to R2, set `VITE_HERO_VIDEO_URL` in Pages → Settings → Environment variables |
+
+Large `hero.mp4` files are gitignored by default. See `public/videos/README.md`.
+
 ---
 
 ## 🧹 Linting

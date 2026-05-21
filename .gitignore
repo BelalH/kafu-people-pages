@@ -2,6 +2,11 @@ node_modules/
 build/
 dist/
 .env
+.env.local
+
+# Hero video over Cloudflare Pages 25 MiB limit (use compress script or R2)
+public/videos/hero.mp4
+media-source/
 .DS_Store
 .vscode/
 .idea/

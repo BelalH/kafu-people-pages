@@ -1,22 +1,38 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import BookMeetingButton from "../ui/BookMeetingButton";
 import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
+import { HERO_POSTER_SRC, HERO_VIDEO_SRC } from "../../constants/media";
 
 export default function Hero() {
+  const [videoFailed, setVideoFailed] = useState(false);
+  const showVideo = HERO_VIDEO_SRC && !videoFailed;
+
   return (
     <section
       className={`relative box-border flex min-h-[90dvh] w-full flex-col justify-center overflow-hidden font-inter sm:min-h-[95dvh] lg:min-h-[100dvh] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
     >
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden
-      >
-        <source src="/videos/hero.mp4" type="video/mp4" />
-      </video>
+      {showVideo ? (
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={HERO_POSTER_SRC}
+          aria-hidden
+          onError={() => setVideoFailed(true)}
+        >
+          <source src={HERO_VIDEO_SRC} type="video/mp4" />
+        </video>
+      ) : (
+        <img
+          src={HERO_POSTER_SRC}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          aria-hidden
+        />
+      )}
       <div className="absolute inset-0 bg-black/50" aria-hidden />
 
       <div className="relative z-10 w-full px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24 xl:px-32">
