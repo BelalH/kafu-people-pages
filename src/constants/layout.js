@@ -1,4 +1,4 @@
-/** Fixed navbar offset (py-2 + logo h-12/h-14). */
+/** Fixed navbar offset (h-16 / 72px bar with logo h-14/h-16). */
 export const HEADER_SPACER_CLASS = "h-[64px] sm:h-[72px]";
 
 /** Pull page heroes flush under the fixed header (pair with HEADER_SPACER_CLASS). */

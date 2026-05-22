@@ -42,7 +42,7 @@ const Navbar = ({ isScrolled: isScrolledProp }) => {
 
   return (
     <nav
-      className={`relative z-50 w-full py-2 px-4 text-sm font-medium font-inter transition-all duration-300 sm:px-8 md:px-16 lg:px-32 ${
+      className={`relative z-50 w-full px-4 text-sm font-medium font-inter transition-all duration-300 sm:px-8 md:px-16 lg:px-32 ${
         isSolid
           ? "border-b border-slate-200 bg-cWhite text-slate-900 shadow-sm"
           : `border-0 bg-transparent shadow-none ${
@@ -50,12 +50,12 @@ const Navbar = ({ isScrolled: isScrolledProp }) => {
             }`
       } ${!isSolid && useLightNavText ? "[&_.menu-items>a:hover]:bg-white/10 [&_.menu-items>button:hover]:bg-white/10" : ""}`}
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="shrink-0 flex items-center" onClick={closeMenu}>
+      <div className="container mx-auto flex h-16 items-center justify-between sm:h-[72px]">
+        <Link to="/" className="flex shrink-0 items-center" onClick={closeMenu}>
           <img
             src={kafupeople}
             alt="Kafu People"
-            className="h-12 w-auto max-w-[170px] sm:h-14 sm:max-w-[200px] object-contain object-left"
+            className="h-14 w-auto max-w-[220px] object-contain object-left sm:h-16 sm:max-w-[280px]"
           />
         </Link>
 
