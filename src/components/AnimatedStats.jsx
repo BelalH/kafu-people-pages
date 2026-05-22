@@ -78,9 +78,16 @@ const AnimatedStats = () => {
       id="stats-section"
       className="w-full bg-primary py-12 font-inter text-cWhite text-center"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
-        {items.map(({ key, icon: Icon, label }) => (
-          <div key={key} className="flex flex-col items-center">
+      <div className="mx-auto grid max-w-6xl grid-cols-2 md:grid-cols-4 px-4">
+        {items.map(({ key, icon: Icon, label }, index) => (
+          <div
+            key={key}
+            className={`flex flex-col items-center px-4 py-6 md:py-4 ${
+              index % 2 === 0 ? "border-r border-white/25" : ""
+            } ${index < 2 ? "border-b border-white/25 md:border-b-0" : ""} ${
+              index < items.length - 1 ? "md:border-r md:border-white/25" : ""
+            }`}
+          >
             <Icon size={40} className="mb-4 text-primary-light opacity-90" />
             <h3 className="text-3xl md:text-[42px] font-bold">
               {Math.round(stats[key])}+
