@@ -1,6 +1,6 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
-import form from "../assets/images/contactUs/form.png";
+import form from "../assets/images/contactUs/form.webp";
 import { PopupButton } from "react-calendly";
 import { FaWhatsappSquare, FaLinkedin } from "react-icons/fa";
 import { useCookieConsent } from "../context/useCookieConsent";
@@ -17,16 +17,17 @@ const ContactSection = () => {
   const { hydrated, allowFunctional } = useCookieConsent();
 
   return (
-    <div
-      className="min-h-screen flex flex-col md:flex-row bg-gray-100 font-inter sm:px-8 lg:px-24 py-12"
-      style={{
-        backgroundImage: `url(${form})`, // Background image for the entire section
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="relative min-h-screen font-inter sm:px-8 lg:px-24 py-12">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${form})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-slate-900/65" aria-hidden />
+
+      <div className="relative z-10 flex min-h-[calc(100vh-6rem)] flex-col md:flex-row">
       {/* Left Section: Contact Info */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-cover bg-center text-cWhite">
+      <div className="flex flex-1 items-center justify-center p-8 text-cWhite">
         <div className="text-center md:text-left">
           <h2 className="text-3xl font-bold mb-6 sm:text-2xl">Get in Touch:</h2>
           <p className="mb-6 text-base sm:text-sm">
@@ -117,7 +118,7 @@ const ContactSection = () => {
 
       {/* Right Section: Contact Form */}
       <div className="flex-1 flex items-center justify-center p-6">
-        <form className="bg-cWhite shadow-lg rounded-tl-lg rounded-tr-[150px] rounded-bl-lg rounded-br-lg p-6 w-full sm:w-[90%] md:w-[400px]">
+        <form className="w-full rounded-2xl bg-cWhite p-6 shadow-lg sm:w-[90%] md:w-[400px]">
           <h2 className="text-2xl font-bold mb-3 text-center sm:text-xl">
             Contact Form:
           </h2>
@@ -193,6 +194,7 @@ const ContactSection = () => {
             Submit
           </button>
         </form>
+      </div>
       </div>
     </div>
   );

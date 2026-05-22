@@ -70,7 +70,7 @@ export default function Hero() {
           <div className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:text-left">
             <h1 className="mb-6 text-3xl font-bold leading-snug text-cWhite sm:text-4xl lg:text-5xl">
               Build and scale with{" "}
-              <span className="text-primary-light">AI, cloud, and full-stack</span>{" "}
+              <span className="text-primary-light">AI, Cloud, and Full-stack</span>{" "}
               expertise
             </h1>
             <p className="mb-8 text-base leading-relaxed text-slate-200 sm:text-lg lg:mb-10">
