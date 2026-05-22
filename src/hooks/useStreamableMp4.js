@@ -34,8 +34,10 @@ export function useStreamableMp4(streamablePageUrl) {
       })
       .then((data) => {
         if (cancelled) return;
+        // Prefer 720p mp4 for full-screen hero; mp4-mobile (360p) looked fine in iframe
+        // but is too soft when stretched with object-cover.
         const url =
-          data?.files?.["mp4-mobile"]?.url ?? data?.files?.mp4?.url ?? null;
+          data?.files?.mp4?.url ?? data?.files?.["mp4-mobile"]?.url ?? null;
         if (url) setSrc(url);
         else setFailed(true);
       })
