@@ -14,8 +14,8 @@ const AboutHero = () => {
       <div className="absolute inset-0 bg-black/50" />
 
       <div className="relative z-10 w-full px-4 py-12 sm:px-8 lg:px-16">
-        <div className="mx-auto max-w-3xl rounded-2xl bg-black/40 p-6 text-center sm:p-8">
-          <h1 className="mb-4 text-2xl font-bold text-cWhite sm:text-3xl lg:text-4xl">
+        <div className="mx-auto max-w-3xl p-6 text-center drop-shadow-lg sm:p-8">
+          <h1 className="mb-4 text-4xl font-bold text-cWhite sm:text-5xl lg:text-6xl">
             Our mission
           </h1>
           <p className="text-base leading-relaxed text-cWhite/90 md:text-lg">

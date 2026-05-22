@@ -9,18 +9,18 @@ const ProductsSection = () => {
       <img
         src={product}
         alt="Our Products"
-        className="absolute inset-0 h-full w-full object-cover brightness-110"
+        className="absolute inset-0 h-full w-full object-cover brightness-125"
       />
-      <div className="absolute inset-0 bg-black/30" />
+      <div className="absolute inset-0 bg-black/15" />
 
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-16">
-        <div className="mx-auto w-full max-w-4xl rounded-2xl bg-black/20 p-6 text-center sm:p-8">
+      <div className="relative z-10 w-full px-4 drop-shadow-lg sm:px-8 lg:px-16">
+        <div className="mx-auto w-full max-w-4xl p-6 text-center sm:p-8">
           <h2 className="mb-4 text-center text-2xl font-extrabold text-cWhite sm:text-4xl lg:text-5xl">
             Innovative Products by{" "}
-            <span className="text-cWhite">KAFUPEOPLE</span>
+            <span className="whitespace-nowrap text-cWhite">Kafu People</span>
           </h2>
           <p className="text-center text-sm leading-relaxed text-cWhite/90 sm:text-base lg:text-lg">
-            Discover a world of innovation with KAFUPEOPLE’s range of
+            Discover a world of innovation with Kafu People&apos;s range of
             cutting-edge products, meticulously crafted to meet the diverse
             needs and challenges of the modern IT landscape.
           </p>

@@ -98,7 +98,7 @@ const ProductsSection = () => {
             Products
           </h3>
           <h2 className="text-2xl sm:text-3xl font-bold text-cWhite leading-tight mb-6">
-            Innovative Products by KAFUPEOPLE
+            Innovative Products by Kafu People
           </h2>
           <p className="text-sm sm:text-base text-cWhite mb-6 max-w-3xl mx-auto">
             Explore KAFUPEOPLE's suite of cutting-edge products designed to

@@ -105,7 +105,7 @@ const ProductsCategories = () => {
   }, [filteredProducts, currentPage, itemsPerPage]);
 
   return (
-    <div className="w-full p-4 sm:p-6 md:p-8 lg:mx-24 font-inter">
+    <div className="box-border w-full max-w-[100vw] overflow-x-hidden p-4 font-inter sm:p-6 md:p-8 lg:px-16 xl:px-24">
       {loading ? (
         <Loader />
       ) : (
@@ -134,8 +134,8 @@ const ProductsCategories = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-start">
-            <div className="flex flex-col w-full  lg:w-1/4 p-4 rounded-lg">
+          <div className="mx-auto flex w-full min-w-0 max-w-7xl flex-col items-start gap-4 lg:flex-row lg:gap-8">
+            <div className="box-border w-full shrink-0 rounded-lg p-4 lg:w-64 xl:w-72">
               <div className="hidden lg:block ">
                 <h3 className="text-lg font-bold text-cDarkBlue mb-4">
                   Categories:
@@ -164,16 +164,15 @@ const ProductsCategories = () => {
               </div>
             </div>
 
-            <div className="flex-1">
+            <div className="min-w-0 flex-1 w-full">
               <div className="space-y-8">
                 {Array.isArray(paginatedProducts) &&
                   paginatedProducts.map((product) => (
                     <div
                       key={product.product_id || product._id}
-                      className="flex flex-col md:flex-row items-center bg-cWhite rounded-2xl shadow-lg hover:shadow-CPurple hover:shadow-lg transition-all duration-300 overflow-hidden"
+                      className="flex w-full min-w-0 max-w-full flex-col overflow-hidden rounded-2xl bg-cWhite shadow-lg transition-all duration-300 hover:shadow-lg hover:shadow-CPurple md:flex-row md:items-stretch"
                     >
-                      {/* Left Side - Text Content */}
-                      <div className="group relative w-full md:w-1/3 lg:w-[320px] h-56 sm:h-64 lg:h-80 flex-shrink-0">
+                      <div className="group relative h-48 w-full shrink-0 sm:h-56 md:h-auto md:w-56 lg:w-64 xl:w-72">
                         <img
                           src={`${product.image}`}
                           alt={""}
@@ -193,16 +192,14 @@ const ProductsCategories = () => {
                           </div>
                         )}
                       </div>
-                      <div className="w-full md:w-2/3 p-6 flex flex-col justify-center">
-                        <h3 className="text-2xl font-bold text-cDarkBlue mb-2">
+                      <div className="flex min-w-0 flex-1 flex-col justify-center p-4 sm:p-6">
+                        <h3 className="mb-2 text-xl font-bold text-cDarkBlue sm:text-2xl">
                           {product.name}
                         </h3>
-                        <p className="text-CPurple text-lg">
+                        <p className="text-base leading-relaxed text-CPurple sm:text-lg">
                           {product.description}
                         </p>
                       </div>
-
-                      {/* Right Side - Image */}
                     </div>
                   ))}
               </div>
