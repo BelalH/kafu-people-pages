@@ -1,6 +1,6 @@
 import PageSEO from "../components/PageSEO";
 import { PAGE_SEO } from "../config/seo";
-import HelpSection from "../components/contactComponent/HelpSection";
+import ContactHero from "../components/contactComponent/ContactHero";
 import ContactSection from "../components/ContactSection";
 import MapSection from "../components/contactComponent/MapSection";
 
@@ -14,7 +14,7 @@ const ContactUs = () => {
         description={seo.description}
         canonicalPath={seo.canonicalPath}
       />
-      <HelpSection />
+      <ContactHero />
       <ContactSection />
       <MapSection />
     </>

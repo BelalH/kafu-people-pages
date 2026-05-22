@@ -1,6 +1,5 @@
 import { FaLocationDot } from "react-icons/fa6";
 import { MdMarkEmailUnread } from "react-icons/md";
-import form from "../assets/images/contactUs/form.webp";
 import { PopupButton } from "react-calendly";
 import { FaWhatsappSquare, FaLinkedin } from "react-icons/fa";
 import { useCookieConsent } from "../context/useCookieConsent";
@@ -17,27 +16,19 @@ const ContactSection = () => {
   const { hydrated, allowFunctional } = useCookieConsent();
 
   return (
-    <div className="relative min-h-screen font-inter sm:px-8 lg:px-24 py-12">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${form})` }}
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-slate-900/65" aria-hidden />
-
-      <div className="relative z-10 flex min-h-[calc(100vh-6rem)] flex-col md:flex-row">
+    <div className="flex min-h-screen flex-col bg-gray-100 py-12 font-inter md:flex-row sm:px-8 lg:px-24">
       {/* Left Section: Contact Info */}
-      <div className="flex flex-1 items-center justify-center p-8 text-cWhite">
+      <div className="flex flex-1 items-center justify-center p-8">
         <div className="text-center md:text-left">
-          <h2 className="text-3xl font-bold mb-6 sm:text-2xl">Get in Touch:</h2>
-          <p className="mb-6 text-base sm:text-sm">
+          <h2 className="mb-6 text-3xl font-bold text-cDarkBlue sm:text-2xl">Get in Touch:</h2>
+          <p className="mb-6 text-base text-[#330C2F] sm:text-sm">
             At <span className="font-semibold">Kafu People</span>, we help you
             ship AI, cloud, and full-stack solutions. Book a meeting or send a
             message — we typically respond within one business day.
           </p>
           <div className="mb-4 text-base">
-            <a href={`mailto:${CONTACT_EMAIL}`} className="text-slate-200 hover:text-white">
-              <p className="text-cWhite flex items-center justify-center md:justify-start">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-cBrightBlue hover:text-CPurple">
+              <p className="flex items-center justify-center text-cDarkBlue md:justify-start">
                 <MdMarkEmailUnread className="mr-2" />
                 Email:
               </p>
@@ -47,11 +38,11 @@ const ContactSection = () => {
           <div className="mb-4">
             <a
               href={WHATSAPP_URL}
-              className="text-slate-200 hover:text-white"
+              className="text-cBrightBlue hover:text-CPurple"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p className="text-cWhite flex items-center justify-center md:justify-start">
+              <p className="flex items-center justify-center text-cDarkBlue md:justify-start">
                 <FaWhatsappSquare className="mr-2" />
                 Phone:
               </p>
@@ -61,11 +52,11 @@ const ContactSection = () => {
           <div className="mb-4">
             <a
               href={LINKEDIN_URL}
-              className="text-slate-200 hover:text-white"
+              className="text-cBrightBlue hover:text-CPurple"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p className="text-cWhite flex items-center justify-center md:justify-start">
+              <p className="flex items-center justify-center text-cDarkBlue md:justify-start">
                 <FaLinkedin className="mr-2" />
                 LinkedIn:
               </p>
@@ -73,15 +64,15 @@ const ContactSection = () => {
             </a>
           </div>
           <div className="mb-4">
-            <p className="flex justify-center md:justify-start">
+            <p className="flex justify-center text-cDarkBlue md:justify-start">
               <FaLocationDot className="mr-2" /> Address:
             </p>
-            <p className="text-[#C2ABB9]">Amsterdam, NL</p>
+            <p className="text-[#330C2F]">Amsterdam, NL</p>
           </div>
           <div className="mb-4">
             {!hydrated ? (
               <div
-                className="mx-auto h-12 max-w-xs animate-pulse rounded-lg bg-cWhite/20 md:mx-0"
+                className="mx-auto h-12 max-w-xs animate-pulse rounded-lg bg-gray-300 md:mx-0"
                 aria-hidden
               />
             ) : allowFunctional ? (
@@ -106,7 +97,6 @@ const ContactSection = () => {
               />
             ) : (
               <CookieFeatureFallback
-                variant="dark"
                 title="Scheduling is disabled"
                 description="Meeting booking uses functional cookies. Enable them in Cookie Preferences, or reach us by email or phone above."
                 className="max-w-sm md:mx-0"
@@ -194,7 +184,6 @@ const ContactSection = () => {
             Submit
           </button>
         </form>
-      </div>
       </div>
     </div>
   );

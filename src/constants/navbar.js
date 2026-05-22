@@ -4,6 +4,7 @@ const DARK_HERO_PATHS = new Set([
   "/about",
   "/services",
   "/portfolio",
+  "/contact",
   "/newsAndEvents",
   "/blogSection",
   "/ProductsCategories",
