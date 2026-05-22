@@ -69,7 +69,9 @@ export default function Hero() {
         <div className="container mx-auto flex flex-1 flex-col justify-center py-8 lg:py-12">
           <div className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:text-left">
             <h1 className="mb-6 text-3xl font-bold leading-snug text-cWhite sm:text-4xl lg:text-5xl">
-              Build and scale with AI, cloud, and full-stack expertise
+              Build and scale with{" "}
+              <span className="text-primary-light">AI, cloud, and full-stack</span>{" "}
+              expertise
             </h1>
             <p className="mb-8 text-base leading-relaxed text-slate-200 sm:text-lg lg:mb-10">
               We help startups and growing businesses move from idea to
