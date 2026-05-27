@@ -7,9 +7,9 @@ export default {
     },
     colors: {
       primary: {
-        DEFAULT: "#4F46E5",
-        dark: "#4338CA",
-        light: "#818CF8",
+        DEFAULT: "#1A41C4",
+        dark: "#143399",
+        light: "#5B7FEB",
       },
       accent: {
         DEFAULT: "#0D9488",
@@ -27,16 +27,16 @@ export default {
         950: "#020617",
       },
       // Legacy aliases (mapped to new palette)
-      CPurple: "#4F46E5",
+      CPurple: "#1A41C4",
       cDarkBlue: "#0F172A",
       cOrange: "#F97316",
-      cBrightBlue: "#4F46E5",
+      cBrightBlue: "#1A41C4",
       cWhite: "#FFFFFF",
       cgray: "#F8FAFC",
       textGray: "#64748B",
       cBlack: "#000000",
       lightBlue: "#CBD5E1",
-      CcradColor: "#312E81",
+      CcradColor: "#102A6E",
       white: "#FFFFFF",
       black: "#000000",
       gray: {
@@ -58,7 +58,7 @@ export default {
         700: "#1D4ED8",
       },
       indigo: {
-        600: "#4F46E5",
+        600: "#1A41C4",
       },
       red: {
         500: "#EF4444",

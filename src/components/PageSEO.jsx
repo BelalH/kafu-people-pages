@@ -41,7 +41,7 @@ const PageSEO = ({
     appendMeta({ name: "twitter:card", content: "summary_large_image" });
     appendMeta({ name: "twitter:title", content: title });
     appendMeta({ name: "twitter:image", content: ogImage });
-    appendMeta({ name: "theme-color", content: "#4F46E5" });
+    appendMeta({ name: "theme-color", content: "#1A41C4" });
 
     const url = canonicalPath ? `${SITE_URL}${canonicalPath}` : SITE_URL;
     appendMeta({ property: "og:url", content: url });
