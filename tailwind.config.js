@@ -7,9 +7,9 @@ export default {
     },
     colors: {
       primary: {
-        DEFAULT: "#1A41C4",
-        dark: "#143399",
-        light: "#5B7FEB",
+        DEFAULT: "#1E4FD4",
+        dark: "#1844B8",
+        light: "#6B93F0",
       },
       accent: {
         DEFAULT: "#0D9488",
@@ -27,16 +27,16 @@ export default {
         950: "#020617",
       },
       // Legacy aliases (mapped to new palette)
-      CPurple: "#1A41C4",
+      CPurple: "#1E4FD4",
       cDarkBlue: "#0F172A",
       cOrange: "#F97316",
-      cBrightBlue: "#1A41C4",
+      cBrightBlue: "#1E4FD4",
       cWhite: "#FFFFFF",
       cgray: "#F8FAFC",
       textGray: "#64748B",
       cBlack: "#000000",
       lightBlue: "#CBD5E1",
-      CcradColor: "#102A6E",
+      CcradColor: "#143A85",
       white: "#FFFFFF",
       black: "#000000",
       gray: {
@@ -58,7 +58,7 @@ export default {
         700: "#1D4ED8",
       },
       indigo: {
-        600: "#1A41C4",
+        600: "#1E4FD4",
       },
       red: {
         500: "#EF4444",
@@ -71,6 +71,10 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        "services-radial":
+          "radial-gradient(ellipse 95% 72% at 50% 0%, #2560E8 0%, #1E4FD4 28%, #1A46C7 52%, #1540B5 82%, #123B9E 100%)",
+      },
       height: {
         "custom-632": "632px",
         "custom-480": "480px",

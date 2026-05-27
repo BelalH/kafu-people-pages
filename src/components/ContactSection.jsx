@@ -94,13 +94,13 @@ const ContactSection = () => {
                 url={CALENDLY_URL}
                 rootElement={document.getElementById("root")}
                 branding
-                color="1A41C4"
+                color="1E4FD4"
                 pageSettings={{
                   backgroundColor: "ffffff",
                   hideEventTypeDetails: false,
                   hideGdprBanner: true,
                   hideLandingPageDetails: false,
-                  primaryColor: "1A41C4",
+                  primaryColor: "1E4FD4",
                   textColor: "4d5055",
                 }}
                 utm={{
