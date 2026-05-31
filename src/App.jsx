@@ -28,6 +28,7 @@ import RegistrationList from "./components/admin/RegistrationList";
 import AddBlog from "./components/admin/AddBlogs";
 import FileUpload from "./components/admin/FileUpload";
 import VerifyUser from "./components/admin/VerifyUser";
+import PrivateRoute from "./components/admin/PrivateRoute";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsentProvider } from "./context/CookieConsentProvider";
@@ -54,7 +55,6 @@ const App = () => {
         <Header />
         <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
@@ -68,17 +68,17 @@ const App = () => {
         <Route path="/blogSection" element={<BlogSection />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
-        <Route path="/admin" element={<AdminDashboard />} />
         <Route path="/services" element={<ServiceMainFile />} />
         <Route path="/training/ai" element={<MainFile />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/addBlog" element={<AddBlog />} />
-        <Route path="/fileUpload" element={<FileUpload />} />
-        <Route path="/verifyUser" element={<VerifyUser />} />
 
-        <Route path="/registrationList" element={<RegistrationList />} />
+        <Route path="/signup" element={<PrivateRoute><Signup /></PrivateRoute>} />
+        <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+        <Route path="/products" element={<PrivateRoute><Products /></PrivateRoute>} />
+        <Route path="/events" element={<PrivateRoute><Events /></PrivateRoute>} />
+        <Route path="/addBlog" element={<PrivateRoute><AddBlog /></PrivateRoute>} />
+        <Route path="/fileUpload" element={<PrivateRoute><FileUpload /></PrivateRoute>} />
+        <Route path="/verifyUser" element={<PrivateRoute><VerifyUser /></PrivateRoute>} />
+        <Route path="/registrationList" element={<PrivateRoute><RegistrationList /></PrivateRoute>} />
         </Routes>
         <Footer />
       </CookieConsentProvider>
