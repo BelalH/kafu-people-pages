@@ -3,6 +3,7 @@ import BookMeetingButton from "../ui/BookMeetingButton";
 import aiMachineIcon from "../../assets/images/homeServices/ai-machine.png";
 import webDevelopmentIcon from "../../assets/images/homeServices/web-development.png";
 import awsCloudIcon from "../../assets/images/homeServices/aws-cloud.png";
+import { MdDoubleArrow } from "react-icons/md";
 
 const services = [
   {
@@ -64,7 +65,7 @@ const ServicesSection = () => {
             to="/services"
             className="inline-flex items-center justify-center rounded-lg border-2 border-cWhite px-6 py-3 text-sm font-semibold text-cWhite transition hover:bg-cWhite hover:text-primary"
           >
-            All Services
+            All Services <MdDoubleArrow size={20} />
           </Link>
         </div>
       </div>

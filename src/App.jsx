@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -15,52 +15,70 @@ import NewsAndEvents from "./pages/NewsAndEvents";
 import BlogSection from "./components/BlogSection/BlogSection";
 
 import Event from "./components/EventComponent/Event";
-import Enroll from "./pages/Enroll";
-import Signup from "./components/admin/Signup";
-import Login from "./components/admin/Login";
+// import Enroll from "./pages/Enroll";
 
-import AdminDashboard from "./components/admin/AdminDashboard";
+// admin routes are lazy loaded
+const Signup = lazy(() => import("./components/admin/Signup"));
+const Login = lazy(() => import("./components/admin/Login"));
+
+const AdminDashboard = lazy(() => import("./components/admin/AdminDashboard"));
 import ProductsCategories from "./components/ProductsCategories";
 
-import Products from "./components/admin/Products";
-import Events from "./components/admin/Events";
-import RegistrationList from "./components/admin/RegistrationList";
-import AddBlog from "./components/admin/AddBlogs";
-import FileUpload from "./components/admin/FileUpload";
-import VerifyUser from "./components/admin/VerifyUser";
+const Products = lazy(() => import("./components/admin/Products"));
+const Events = lazy(() => import("./components/admin/Events"));
+const RegistrationList = lazy(() => import("./components/admin/RegistrationList"));
+const AddBlog = lazy(() => import("./components/admin/AddBlogs"));
+const FileUpload = lazy(() => import("./components/admin/FileUpload"));
+const VerifyUser = lazy(() => import("./components/admin/VerifyUser"));
+
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsentProvider } from "./context/CookieConsentProvider";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Set a timer for 10 seconds
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 700); // 700 milliseconds = 0.7 seconds
+  // useEffect(() => {
+  //   // Set a timer for 10 seconds
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 150); // 150 milliseconds = 0.15 seconds
 
-    // Cleanup the timer if the component unmounts before the timer finishes
-    return () => clearTimeout(timer);
-  }, []);
+  //   // Cleanup the timer if the component unmounts before the timer finishes
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  // if (loading) {
+  //   return <Loader />;
+  // }
   return (
     <Router>
       <CookieConsentProvider>
         <Header />
         <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+
+        {/* login page for admin lazy loaded with suspense */}
+        <Route path="/login" element={
+          <Suspense fallback={<Loader />}>
+            <Login />
+          </Suspense>
+          } />
+          
+        {/* signup page for admin lazy loaded with suspense */}
+        <Route path="/signup" element={
+          <Suspense fallback={<Loader />}>
+              <Signup />
+            </Suspense>
+          }/>
+
+        
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/portfolio" element={<OurProducts />} />
+        <Route path="/services" element={<ServiceMainFile />} />
 
         <Route path="/newsAndEvents" element={<NewsAndEvents />} />
         <Route path="/event/:id" element={<Event />} />
@@ -68,17 +86,65 @@ const App = () => {
         <Route path="/blogSection" element={<BlogSection />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/services" element={<ServiceMainFile />} />
-        <Route path="/training/ai" element={<MainFile />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/addBlog" element={<AddBlog />} />
-        <Route path="/fileUpload" element={<FileUpload />} />
-        <Route path="/verifyUser" element={<VerifyUser />} />
 
-        <Route path="/registrationList" element={<RegistrationList />} />
+
+
+        {/* admin page lazy loaded with suspense */}
+        <Route path="/admin" element={
+          <Suspense fallback={<Loader />}>
+            <AdminDashboard />
+          </Suspense>
+          } />
+
+
+
+        <Route path="/training/ai" element={<MainFile />} />
+
+
+
+        {/* products page for admin lazy loaded with suspense */}
+        <Route path="/products" element={
+          <Suspense fallback={<Loader />}>
+            <Products />
+          </Suspense>
+          } />
+
+        {/* event page for admin lazy loaded with suspense */}
+        <Route path="/events" element={
+          <Suspense fallback={<Loader />}>
+            <Events />
+          </Suspense>
+          } />
+
+        {/* addblog page for admin lazy loaded with suspense */}
+        <Route path="/addBlog" element={
+          <Suspense fallback={<Loader />}>
+            <AddBlog />
+          </Suspense>
+          } />
+
+        {/* fileupload page for admin lazy loaded with suspense */}
+        <Route path="/fileUpload" element={
+          <Suspense fallback={<Loader />}>
+            <FileUpload />
+          </Suspense>
+          } />
+
+        {/* verifyuser page for admin lazy loaded with suspense */}
+        <Route path="/verifyUser" element={
+          <Suspense fallback={<Loader />}>
+            <VerifyUser />
+          </Suspense>
+          } />
+
+        {/* registrationlist page for admin lazy loaded with suspense */}
+        <Route path="/registrationList" element={
+          <Suspense fallback={<Loader />}>
+            <RegistrationList />
+          </Suspense>
+          } />
+
+
         </Routes>
         <Footer />
       </CookieConsentProvider>
