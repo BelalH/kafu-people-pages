@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { LuRocket } from "react-icons/lu";
 import BookMeetingButton from "../ui/BookMeetingButton";
 import aiMachineIcon from "../../assets/images/homeServices/ai-machine.png";
 import webDevelopmentIcon from "../../assets/images/homeServices/web-development.png";
@@ -6,27 +7,37 @@ import awsCloudIcon from "../../assets/images/homeServices/aws-cloud.png";
 
 const services = [
   {
-    title: "AI & Machine Learning",
+    title: "Autonomous AI & Intelligent Automation",
     description:
-      "Practical AI integrations, agents, and automation that fit your product — not hype for its own sake.",
+      "We design and deploy autonomous AI agents that integrate directly into your operations. Our cognitive AI solutions handle complex, multi-step business workflows to eliminate manual friction.",
     icon: aiMachineIcon,
-    alt: "AI and machine learning",
+    alt: "Autonomous AI & Intelligent Automation",
   },
   {
-    title: "Web Development",
+    title: "User-Centric Product Design & Engineering",
     description:
-      "Modern full-stack applications and corporate sites — performant, accessible, and ready to grow with you.",
+      "We merge world-class UI/UX design with robust software engineering. From initial wireframes to native mobile and web applications, we build digital products that look stunning and perform flawlessly.",
     icon: webDevelopmentIcon,
-    alt: "Web development",
+    alt: "User-Centric Product Design & Engineering",
   },
   {
-    title: "AWS Cloud Solutions",
+    title: "Cloud Infrastructure & Lifecycle Support",
     description:
-      "Secure, scalable cloud architecture and dashboards on AWS — built for reliability and cost awareness.",
+      "We architect secure, scalable AWS cloud environments and back them up with continuous technical support. We monitor your infrastructure 24/7 so your software stays fast, secure, and always online.",
     icon: awsCloudIcon,
-    alt: "AWS cloud solutions",
+    alt: "Cloud Infrastructure & Lifecycle Support",
+  },
+  {
+    title: "Rapid MVP Development (No-Code / Low-Code)",
+    description:
+      "We accelerate your time-to-market using cutting-edge No-code and Low-code platforms. Launch your Minimum Viable Product (MVP) quickly, validate your ideas with real users, and save thousands in upfront development costs.",
+    Icon: LuRocket,
+    alt: "Rapid MVP Development",
   },
 ];
+
+const iconWrapClass =
+  "mb-6 flex h-20 w-20 shrink-0 items-center justify-start sm:h-24 sm:w-24";
 
 const ServicesSection = () => {
   return (
@@ -40,19 +51,29 @@ const ServicesSection = () => {
           End-to-end support for teams that need to ship — from architecture and
           development to cloud and AI.
         </p>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {services.map(({ title, description, icon, alt }) => (
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
+          {services.map(({ title, description, icon, Icon, alt }) => (
             <div
               key={title}
               className="rounded-2xl bg-cWhite/10 p-8 text-left transition-all duration-300 hover:-translate-y-1 hover:bg-cWhite/[0.15]"
             >
-              <img
-                src={icon}
-                alt={alt}
-                className="mb-6 h-20 w-20 object-contain sm:h-24 sm:w-24"
-                loading="lazy"
-                decoding="async"
-              />
+              {icon ? (
+                <img
+                  src={icon}
+                  alt={alt}
+                  className={`${iconWrapClass} object-contain object-left`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : (
+                <div className={iconWrapClass}>
+                  <Icon
+                    className="h-14 w-14 text-cWhite sm:h-16 sm:w-16"
+                    strokeWidth={1}
+                    aria-hidden
+                  />
+                </div>
+              )}
               <h3 className="mb-3 text-2xl font-bold text-cWhite sm:text-[1.75rem]">{title}</h3>
               <p className="text-sm leading-relaxed text-cWhite/90">{description}</p>
             </div>
