@@ -5,6 +5,15 @@ export const WHATSAPP_URL = "https://wa.me/31613913024";
 export const WHATSAPP_DISPLAY = "+31 6 13913024";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/kafu-people/";
 export const CALENDLY_URL = "https://calendly.com/kafupeople/30min";
+export const CALENDLY_PRIMARY_COLOR = "#1E4FD4";
+export const CALENDLY_PAGE_SETTINGS = {
+  backgroundColor: "ffffff",
+  hideEventTypeDetails: false,
+  hideGdprBanner: true,
+  hideLandingPageDetails: false,
+  primaryColor: "1E4FD4",
+  textColor: "4d5055",
+};
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/kafupeople.webp`;
 
 export const TESTIMONIALS = [

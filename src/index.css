@@ -14,3 +14,7 @@
     @apply transition-colors;
   }
 }
+
+body.calendly-popup-open {
+  overflow: hidden !important;
+}

@@ -6,7 +6,6 @@ import Loader from "../Loader";
 import PageSEO from "../PageSEO";
 import { PAGE_SEO } from "../../config/seo";
 import PageHero from "../ui/PageHero";
-import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const BlogSection = () => {
   const [blogs, setBlogs] = useState([]); // Store fetched blogs
@@ -60,29 +59,26 @@ const BlogSection = () => {
         <Loader />
       ) : (
         <>
-          <div
-            className={`relative box-border h-[60vh] overflow-hidden font-inter text-center text-cWhite lg:h-[80vh] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
+          <PageHero
+            image={blogsection}
+            imageAlt=""
+            height="h-[60vh] lg:h-[80vh]"
+            priority
+            align="left"
+            containerClassName="pt-8"
           >
-            <img
-              src={blogsection}
-              alt=""
-              fetchpriority="high"
-              className={`absolute inset-0 h-full w-full object-cover lg:opacity-100 sm:opacity-15`}
-            />
-            <div className="relative z-10 flex flex-col pt-8">
-              <h1 className="ml-8 text-left text-4xl font-bold text-cWhite sm:text-5xl md:text-6xl lg:ml-24 lg:text-cWhite sm:text-cBlack">
-                KAFUPEOPLE BLOGS
-              </h1>
-              <div className="lg:w-[700px] w-auto">
-                <p className="relative text-lg sm:text-xl lg:text-left lg:ml-24 mx-4 sm:text-justify lg:text-cWhite text-cWhite mt-2 z-10 sm:text-cBlack">
-                  Our company shares updates, achievements, and new projects. We
-                  also post ideas, insights, and random thoughts on industry
-                  trends, innovation, and daily work experiences. Stay connected
-                  for news, announcements, and behind-the-scenes stories.
-                </p>
-              </div>
+            <h1 className="ml-8 text-left text-4xl font-bold text-cWhite sm:text-5xl md:text-6xl lg:ml-24">
+              KAFUPEOPLE BLOGS
+            </h1>
+            <div className="lg:w-[700px] w-auto">
+              <p className="text-lg sm:text-xl lg:text-left lg:ml-24 mx-4 sm:text-justify text-cWhite mt-2">
+                Our company shares updates, achievements, and new projects. We
+                also post ideas, insights, and random thoughts on industry
+                trends, innovation, and daily work experiences. Stay connected
+                for news, announcements, and behind-the-scenes stories.
+              </p>
             </div>
-          </div>
+          </PageHero>
 
           <div className="container mx-auto px-6 py-6 text-center">
             <div className="flex justify-center">
