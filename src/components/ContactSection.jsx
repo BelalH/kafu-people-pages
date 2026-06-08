@@ -22,6 +22,7 @@ const ContactSection = () => {
         <img
           src={contactBg}
           alt=""
+          fetchpriority="high"
           className="absolute inset-0 h-full w-full object-cover"
           aria-hidden
         />

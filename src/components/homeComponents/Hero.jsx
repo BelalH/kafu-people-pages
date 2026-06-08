@@ -38,6 +38,7 @@ export default function Hero() {
       <img
         src={HERO_POSTER_SRC}
         alt=""
+        fetchpriority="high"
         className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
           showVideo ? "opacity-0" : "opacity-100"
         }`}

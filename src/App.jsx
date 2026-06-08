@@ -36,21 +36,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsentProvider } from "./context/CookieConsentProvider";
 
 const App = () => {
-  // const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   // Set a timer for 10 seconds
-  //   const timer = setTimeout(() => {
-  //     setLoading(false);
-  //   }, 150); // 150 milliseconds = 0.15 seconds
-
-  //   // Cleanup the timer if the component unmounts before the timer finishes
-  //   return () => clearTimeout(timer);
-  // }, []);
-
-  // if (loading) {
-  //   return <Loader />;
-  // }
   return (
     <Router>
       <CookieConsentProvider>
