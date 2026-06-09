@@ -201,13 +201,13 @@ const services = [
 
 const CyberService = () => {
   return (
-    <div className="bg-cWhite py-10 px-4 md:px-8 lg:px-16 font-inter">
+    <div className="bg-cWhite py-16 lg:py-24 px-4 md:px-8 lg:px-16 font-inter">
       {/* Header */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-10">
         <h2 className="text-2xl md:text-4xl font-bold text-cBlack mb-4">
           Services <span className="text-black">We Offer</span>
         </h2>
-        <p className="text-base md:text-lg text-justify pr-20 pl-20 text-cBlack">
+        <p className="text-base md:text-lg text-center px-1 sm:px-10 md:px-20 text-cBlack">
           At KAFUPEOPLE, we understand the power of technology to transform
           businesses. Our comprehensive suite of services spans AI‑driven
           automation, rapid SaaS and MVP development, cloud‑native dashboards,

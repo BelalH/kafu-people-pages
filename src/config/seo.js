@@ -43,7 +43,7 @@ export const PAGE_SEO = {
     title: `Blog | ${SITE_NAME}`,
     description:
       "Articles and updates from Kafu People on technology, product development, and digital transformation.",
-    canonicalPath: "/blogSection",
+    canonicalPath: "/blogs",
   },
   terms: {
     title: `Terms of Service | ${SITE_NAME}`,

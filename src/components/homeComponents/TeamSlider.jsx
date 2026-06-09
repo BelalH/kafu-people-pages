@@ -212,7 +212,7 @@ const TeamSlider = () => {
     >
       <h4 className="text-center text-xl mb-3">MEET OUR TEAM</h4>
       <h2 className="text-center text-3xl font-bold mb-6">
-        <span className="text-indigo-500">Spotlight On Our Experts</span>
+        <span className="text-CPurple">Spotlight On Our Experts</span>
       </h2>
       <p className="text-center text-textGray">
         Explore the expertise, passion, and innovative thinking of the
@@ -304,7 +304,7 @@ const TeamSlider = () => {
               <h3 className="text-xl font-semibold text-cDarkBlue">
                 {member.name}
               </h3>
-              <p className="text-indigo-600 text-sm font-medium">
+              <p className="text-CPurple text-sm font-medium">
                 {member.role}
               </p>
               <p className="text-gray-500 text-sm mt-2 text-textGray">
