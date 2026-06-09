@@ -30,7 +30,6 @@ const RegistrationList = lazy(() => import("./components/admin/RegistrationList"
 const AddBlog = lazy(() => import("./components/admin/AddBlogs"));
 const FileUpload = lazy(() => import("./components/admin/FileUpload"));
 const VerifyUser = lazy(() => import("./components/admin/VerifyUser"));
-
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsentProvider } from "./context/CookieConsentProvider";
@@ -74,7 +73,6 @@ const App = () => {
         <Route path="/blogs" element={<BlogSection />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
-
 
 
         {/* admin page lazy loaded with suspense */}
@@ -131,7 +129,6 @@ const App = () => {
             <RegistrationList />
           </Suspense>
           } />
-
 
         </Routes>
         <Footer />
