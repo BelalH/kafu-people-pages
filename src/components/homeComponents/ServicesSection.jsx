@@ -31,7 +31,7 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="bg-services-radial py-16 font-inter text-cWhite">
+    <section className="bg-services-radial py-16 lg:py-24 font-inter text-cWhite">
       <div className="mx-auto max-w-7xl px-6 text-center">
         <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-cWhite">
           What we do

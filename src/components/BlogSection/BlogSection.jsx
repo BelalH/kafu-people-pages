@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import blogsection from "../../assets/images/blogs/blogSection.jpg";
@@ -92,7 +93,7 @@ const BlogSection = () => {
                 ].map((category) => (
                   <button
                     key={category}
-                    className={`px-4 py-2 rounded-md text-sm sm:text-base border flex-shrink-0 ${
+                    className={`px-4 py-2 min-h-[44px] rounded-md text-sm sm:text-base border flex-shrink-0 ${
                       filter === category
                         ? "border-CPurple text-CPurple bg-transparent"
                         : "bg-cBrightBlue text-cgray hover:bg-cWhite hover:text-cBlack"
@@ -107,35 +108,67 @@ const BlogSection = () => {
           </div>
           {/* Blog Grid */}
           <div className="container mx-auto px-6 py-8">
-            <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 "
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {Array.isArray(filteredBlogs) &&
-                filteredBlogs.map((blog) => (
-                  <motion.div
-                    key={blog._id}
-                    className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-CPurple"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Image with opacity change on small devices */}
-                    <img
-                      src={`${BACKEND_URL}/${blog.image}`}
-                      alt={blog.title}
-                      className="w-full h-48 object-cover opacity-100 sm:opacity-80 md:opacity-100"
-                    />
-                    <div className="p-6">
-                      <h2 className="text-xl font-bold text-cDarkBlue">
-                        {blog.title}
-                      </h2>
-                      <p className="text-CPurple mt-2">{blog.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-            </motion.div>
+            {error ? (
+              <div className="text-center py-16">
+                <h3 className="text-2xl font-bold text-cDarkBlue mb-4">
+                  Something went wrong
+                </h3>
+                <p className="text-gray-600 mb-6 max-w-md mx-auto">
+                  We couldn't load the blog articles right now. Please try again
+                  later or{" "}
+                  <Link to="/contact" className="text-CPurple underline hover:no-underline">
+                    contact us
+                  </Link>{" "}
+                  if the issue persists.
+                </p>
+              </div>
+            ) : !Array.isArray(blogs) || blogs.length === 0 ? (
+              <div className="text-center py-16">
+                <h3 className="text-2xl font-bold text-cDarkBlue mb-4">
+                  No articles yet
+                </h3>
+                <p className="text-gray-600 max-w-md mx-auto">
+                  We're working on publishing our first articles. Check back
+                  soon for insights and updates from Kafu People.
+                </p>
+              </div>
+            ) : (
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 "
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                {Array.isArray(filteredBlogs) && filteredBlogs.length > 0 ? (
+                  filteredBlogs.map((blog) => (
+                    <motion.div
+                      key={blog._id}
+                      className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-CPurple"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <img
+                        src={`${BACKEND_URL}/${blog.image}`}
+                        alt={blog.title}
+                        className="w-full h-48 object-cover opacity-100 sm:opacity-80 md:opacity-100"
+                      />
+                      <div className="p-6">
+                        <h2 className="text-xl font-bold text-cDarkBlue">
+                          {blog.title}
+                        </h2>
+                        <p className="text-CPurple mt-2">{blog.description}</p>
+                      </div>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-12">
+                    <p className="text-gray-500">
+                      No articles found for this category.
+                    </p>
+                  </div>
+                )}
+              </motion.div>
+            )}
           </div>
         </>
       )}

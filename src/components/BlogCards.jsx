@@ -46,7 +46,7 @@ const BlogCards = () => {
         {blogs.map((blog) => (
           <Link
             key={blog.id}
-            to="/blogSection"
+            to="/blogs"
             className="bg-CcradColor text-black border border-primary/30 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl w-full max-w-4xl flex flex-col sm:flex-row no-underline"
           >
             {/* Left: Image */}

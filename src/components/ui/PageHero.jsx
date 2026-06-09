@@ -51,6 +51,10 @@ export default function PageHero({
     <section
       className={`relative box-border flex w-full flex-col justify-center overflow-hidden font-inter ${heightClass} ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT} ${className}`}
     >
+      <div
+        className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800"
+        aria-hidden
+      />
       {image ? (
         <img
           src={image}
@@ -58,12 +62,7 @@ export default function PageHero({
           fetchpriority={priority ? "high" : undefined}
           className={`absolute inset-0 h-full w-full object-cover ${imageClassName}`}
         />
-      ) : (
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-slate-900"
-          aria-hidden
-        />
-      )}
+      ) : null}
 
       {overlay !== false && (
         <div className={`absolute inset-0 ${OVERLAY_CLASSES[overlay]}`} aria-hidden />

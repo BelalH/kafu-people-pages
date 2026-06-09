@@ -158,7 +158,7 @@ const ContactSection = () => {
           </div>
           <button
             type="submit"
-            className="w-full p-3 bg-gradient-to-r from-cDarkBlue to-CPurple text-cWhite font-semibold rounded hover:opacity-90"
+            className="w-full min-h-[44px] p-3 bg-gradient-to-r from-cDarkBlue to-CPurple text-cWhite font-semibold rounded hover:opacity-90"
           >
             Submit
           </button>

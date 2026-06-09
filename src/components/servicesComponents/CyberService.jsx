@@ -201,7 +201,7 @@ const services = [
 
 const CyberService = () => {
   return (
-    <div className="bg-cWhite py-10 px-4 md:px-8 lg:px-16 font-inter">
+    <div className="bg-cWhite py-16 lg:py-24 px-4 md:px-8 lg:px-16 font-inter">
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-4xl font-bold text-cBlack mb-4">

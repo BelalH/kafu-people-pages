@@ -2,7 +2,7 @@ import { TESTIMONIALS } from "../../constants/site";
 
 const Testimonials = () => {
   return (
-    <section className="bg-surface py-16 px-4 sm:px-8 lg:px-24 font-inter">
+    <section className="bg-surface py-16 lg:py-24 px-4 sm:px-8 lg:px-24 font-inter">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent mb-2">

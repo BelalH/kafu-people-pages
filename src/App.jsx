@@ -1,5 +1,5 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import ServiceMainFile from "./components/servicesComponents/ServiceMainFile";
@@ -69,7 +69,9 @@ const App = () => {
         <Route path="/newsAndEvents" element={<NewsAndEvents />} />
         <Route path="/event/:id" element={<Event />} />
         {/* <Route path="/enroll" element={<Enroll />} /> */}
-        <Route path="/blogSection" element={<BlogSection />} />
+        <Route path="/blogSection" element={<Navigate to="/blogs" replace />} />
+        <Route path="/blog" element={<Navigate to="/blogs" replace />} />
+        <Route path="/blogs" element={<BlogSection />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
 

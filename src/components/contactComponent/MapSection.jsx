@@ -10,7 +10,7 @@ const MapSection = () => {
   if (!hydrated) {
     return (
       <div
-        className="relative h-[70vh] w-full animate-pulse bg-gray-200 font-inter"
+        className="relative h-[50vh] md:h-[70vh] w-full animate-pulse bg-gray-200 font-inter"
         aria-hidden
       />
     );
@@ -19,7 +19,7 @@ const MapSection = () => {
   if (!allowFunctional) {
     return (
       <section
-        className="relative flex h-[70vh] w-full items-center justify-center bg-gray-100 px-4 font-inter"
+        className="relative flex h-[50vh] md:h-[70vh] w-full items-center justify-center bg-gray-100 px-4 font-inter"
         aria-label="Office location map"
       >
         <div className="w-full max-w-lg">
@@ -43,7 +43,7 @@ const MapSection = () => {
 
   return (
     <div
-      className="relative h-[70vh] w-full font-inter"
+      className="relative h-[50vh] md:h-[70vh] w-full font-inter"
       style={{
         width: "100%",
         height: "70vh",
