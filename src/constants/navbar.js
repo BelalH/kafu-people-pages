@@ -10,7 +10,7 @@ const DARK_HERO_PATHS = new Set([
   "/ProductsCategories",
 ]);
 
-const DARK_HERO_PREFIXES = ["/event/", "/training/"];
+const DARK_HERO_PREFIXES = ["/event/", "/training/", "/portfolio/"];
 
 export function isDarkHeroRoute(pathname) {
   if (DARK_HERO_PATHS.has(pathname)) return true;
