@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Loader from "../Loader";
+import { getCaseByProductId } from "../../data/portfolioCases";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -178,18 +180,52 @@ const ProductsCategories = () => {
                           alt={product.name}
                           className="w-full h-full object-cover"
                         />
-                        {product?.url && (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="absolute inset-0 bg-black/35 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100" />
-                            <a
-                              href={product.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="relative px-5 py-2.5 min-h-[44px] rounded-xl bg-CPurple text-gray-300 font-extrabold shadow-2xl ring-2 ring-white/90 opacity-0 translate-y-1 transition-all duration-200 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-white"
-                            >
-                              Visit product
-                            </a>
-                          </div>
+                        {(() => {
+                          const caseStudy = getCaseByProductId(product.product_id);
+                          if (!product?.url && !caseStudy) return null;
+                          return (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="absolute inset-0 bg-black/35 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100" />
+                              <div className="relative flex flex-wrap items-center justify-center gap-3 opacity-0 translate-y-1 transition-all duration-200 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto">
+                                {caseStudy ? (
+                                  <>
+                                    <Link
+                                      to={`/portfolio/${caseStudy.slug}`}
+                                      className="px-4 py-2.5 min-h-[44px] rounded-xl bg-CPurple text-white font-extrabold shadow-2xl ring-2 ring-white/90 hover:opacity-90 transition focus:outline-none focus:ring-4 focus:ring-white"
+                                    >
+                                      Case Study
+                                    </Link>
+                                    {product.url && (
+                                      <a
+                                        href={product.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="px-4 py-2.5 min-h-[44px] rounded-xl bg-white text-CPurple font-extrabold shadow-2xl ring-2 ring-white/90 hover:bg-gray-100 transition focus:outline-none focus:ring-4 focus:ring-white"
+                                      >
+                                        Live Site →
+                                      </a>
+                                    )}
+                                  </>
+                                ) : (
+                                  product.url && (
+                                    <a
+                                      href={product.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="px-5 py-2.5 min-h-[44px] rounded-xl bg-CPurple text-white font-extrabold shadow-2xl ring-2 ring-white/90 hover:opacity-90 transition focus:outline-none focus:ring-4 focus:ring-white"
+                                    >
+                                      Visit Live Site
+                                    </a>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })()}
+                        {!getCaseByProductId(product.product_id) && (
+                          <span className="absolute top-2 right-2 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold text-white">
+                            Reference
+                          </span>
                         )}
                       </div>
                       <div className="flex min-w-0 flex-1 flex-col justify-center p-4 sm:p-6">

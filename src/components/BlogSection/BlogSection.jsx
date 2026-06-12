@@ -7,6 +7,7 @@ import Loader from "../Loader";
 import PageSEO from "../PageSEO";
 import { PAGE_SEO } from "../../config/seo";
 import PageHero from "../ui/PageHero";
+import staticBlogs from "../../data/blogs";
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const BlogSection = () => {
   const [blogs, setBlogs] = useState([]); // Store fetched blogs
@@ -27,11 +28,15 @@ const BlogSection = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get(`${BACKEND_URL}/api/blogs`); // Replace with your actual API
-        setBlogs(response.data); // Set blog data
+        const response = await axios.get(`${BACKEND_URL}/api/blogs`);
+        if (Array.isArray(response.data) && response.data.length > 0) {
+          setBlogs(response.data);
+        } else {
+          setBlogs(staticBlogs);
+        }
       } catch (error) {
         console.error("Error fetching blogs:", error);
-        setError("Failed to load blogs. Please try again later.");
+        setBlogs(staticBlogs);
       } finally {
         setLoading(false);
       }
@@ -141,24 +146,31 @@ const BlogSection = () => {
               >
                 {Array.isArray(filteredBlogs) && filteredBlogs.length > 0 ? (
                   filteredBlogs.map((blog) => (
-                    <motion.div
+                    <Link
                       key={blog._id}
-                      className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-CPurple"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
+                      to={`/blogs/${blog.slug || blog._id}`}
+                      className="block"
                     >
-                      <img
-                        src={`${BACKEND_URL}/${blog.image}`}
-                        alt={blog.title}
-                        className="w-full h-48 object-cover opacity-100 sm:opacity-80 md:opacity-100"
-                      />
-                      <div className="p-6">
-                        <h2 className="text-xl font-bold text-cDarkBlue">
-                          {blog.title}
-                        </h2>
-                        <p className="text-CPurple mt-2">{blog.description}</p>
-                      </div>
-                    </motion.div>
+                      <motion.div
+                        className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-CPurple"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <img
+                          src={blog.image}
+                          alt={blog.title}
+                          className="w-full h-48 object-cover opacity-100 sm:opacity-80 md:opacity-100"
+                        />
+                        <div className="p-6">
+                          <h2 className="text-xl font-bold text-cDarkBlue">
+                            {blog.title}
+                          </h2>
+                          <p className="text-CPurple mt-2 line-clamp-3">
+                            {blog.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </Link>
                   ))
                 ) : (
                   <div className="col-span-full text-center py-12">

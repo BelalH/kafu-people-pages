@@ -27,6 +27,12 @@ export const PAGE_SEO = {
       "Explore products and projects built by Kafu People — SaaS MVPs, dashboards, integrations, and more.",
     canonicalPath: "/portfolio",
   },
+  portfolioCaseStudy: {
+    title: (name) => `${name} — Case Study | ${SITE_NAME}`,
+    description:
+      "In-depth case study of a product built by Kafu People — from concept to delivery.",
+    canonicalPath: (slug) => `/portfolio/${slug}`,
+  },
   services: {
     title: `Services | ${SITE_NAME}`,
     description:
@@ -38,6 +44,12 @@ export const PAGE_SEO = {
     description:
       "Latest news, events, and insights from Kafu People on AI, cloud, and modern software delivery.",
     canonicalPath: "/newsAndEvents",
+  },
+  blogPost: {
+    title: (title) => `${title} — Blog | ${SITE_NAME}`,
+    description:
+      "Read the latest article from Kafu People on technology, product development, and digital transformation.",
+    canonicalPath: (slug) => `/blogs/${slug}`,
   },
   blog: {
     title: `Blog | ${SITE_NAME}`,

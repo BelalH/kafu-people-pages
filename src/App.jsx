@@ -6,13 +6,16 @@ import ServiceMainFile from "./components/servicesComponents/ServiceMainFile";
 import MainFile from "./components/trainingComponenets/MainFile";
 import Loader from "./components/Loader";
 // import Services from "./pages/Services";
+import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Navbar/Header";
 import Footer from "./components/Footer";
 import ContactUs from "./pages/ContactUs";
 import OurProducts from "./pages/OurProducts";
+import PortfolioCaseStudy from "./pages/PortfolioCaseStudy";
 
 import NewsAndEvents from "./pages/NewsAndEvents";
 import BlogSection from "./components/BlogSection/BlogSection";
+import BlogPost from "./pages/BlogPost";
 
 import Event from "./components/EventComponent/Event";
 // import Enroll from "./pages/Enroll";
@@ -38,6 +41,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <CookieConsentProvider>
         <Header />
         <Routes>
@@ -63,6 +67,7 @@ const App = () => {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/portfolio" element={<OurProducts />} />
+        <Route path="/portfolio/:slug" element={<PortfolioCaseStudy />} />
         <Route path="/services" element={<ServiceMainFile />} />
 
         <Route path="/newsAndEvents" element={<NewsAndEvents />} />
@@ -71,6 +76,7 @@ const App = () => {
         <Route path="/blogSection" element={<Navigate to="/blogs" replace />} />
         <Route path="/blog" element={<Navigate to="/blogs" replace />} />
         <Route path="/blogs" element={<BlogSection />} />
+        <Route path="/blogs/:slug" element={<BlogPost />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
 
