@@ -81,6 +81,12 @@ export const PAGE_SEO = {
       "An educational guide from Kafu People on AI, cloud, product, and modern software delivery.",
     canonicalPath: (slug) => `/articles/${slug}`,
   },
+  team: {
+    title: `Our Team | ${SITE_NAME}`,
+    description:
+      "Meet the distributed, remote-first team of engineers, designers, and strategists building AI, cloud, and full-stack products at Kafu People.",
+    canonicalPath: "/team",
+  },
   terms: {
     title: `Terms of Service | ${SITE_NAME}`,
     description: `Terms of Service for ${SITE_NAME}.`,

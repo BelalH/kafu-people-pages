@@ -18,6 +18,7 @@ import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
 import Articles from "./pages/Articles";
 import Article from "./pages/Article";
+import Team from "./pages/Team";
 import BlogSection from "./components/BlogSection/BlogSection";
 import BlogPost from "./pages/BlogPost";
 
@@ -87,6 +88,8 @@ const App = () => {
         <Route path="/articles" element={<Articles />} />
         <Route path="/articles/:slug" element={<Article />} />
         <Route path="/learn" element={<Navigate to="/articles" replace />} />
+
+        <Route path="/team" element={<Team />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
 
