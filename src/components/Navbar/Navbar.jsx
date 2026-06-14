@@ -11,6 +11,7 @@ const menuItems = [
   { title: "SERVICES", url: "/services" },
   { title: "PORTFOLIO", url: "/portfolio" },
   { title: "BLOGS", url: "/blogs" },
+  { title: "LEARN", url: "/articles" },
   { title: "CONTACT", url: "/contact" },
 ];
 

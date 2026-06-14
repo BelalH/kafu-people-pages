@@ -16,6 +16,8 @@ import PortfolioCaseStudy from "./pages/PortfolioCaseStudy";
 import NewsAndEvents from "./pages/NewsAndEvents";
 import News from "./pages/News";
 import NewsArticle from "./pages/NewsArticle";
+import Articles from "./pages/Articles";
+import Article from "./pages/Article";
 import BlogSection from "./components/BlogSection/BlogSection";
 import BlogPost from "./pages/BlogPost";
 
@@ -81,6 +83,10 @@ const App = () => {
         <Route path="/blog" element={<Navigate to="/blogs" replace />} />
         <Route path="/blogs" element={<BlogSection />} />
         <Route path="/blogs/:slug" element={<BlogPost />} />
+
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:slug" element={<Article />} />
+        <Route path="/learn" element={<Navigate to="/articles" replace />} />
 
         <Route path="/ProductsCategories" element={<ProductsCategories />} />
 
