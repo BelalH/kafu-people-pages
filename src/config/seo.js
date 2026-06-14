@@ -45,6 +45,18 @@ export const PAGE_SEO = {
       "Latest news, events, and insights from Kafu People on AI, cloud, and modern software delivery.",
     canonicalPath: "/newsAndEvents",
   },
+  newsList: {
+    title: `News & Updates | ${SITE_NAME}`,
+    description:
+      "Announcements, events, partnerships, and product updates from the Kafu People team.",
+    canonicalPath: "/news",
+  },
+  newsArticle: {
+    title: (title) => `${title} — News | ${SITE_NAME}`,
+    description:
+      "Read the latest news and updates from Kafu People on AI, cloud, and modern software delivery.",
+    canonicalPath: (slug) => `/news/${slug}`,
+  },
   blogPost: {
     title: (title) => `${title} — Blog | ${SITE_NAME}`,
     description:

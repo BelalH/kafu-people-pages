@@ -14,6 +14,8 @@ import OurProducts from "./pages/OurProducts";
 import PortfolioCaseStudy from "./pages/PortfolioCaseStudy";
 
 import NewsAndEvents from "./pages/NewsAndEvents";
+import News from "./pages/News";
+import NewsArticle from "./pages/NewsArticle";
 import BlogSection from "./components/BlogSection/BlogSection";
 import BlogPost from "./pages/BlogPost";
 
@@ -70,6 +72,8 @@ const App = () => {
         <Route path="/portfolio/:slug" element={<PortfolioCaseStudy />} />
         <Route path="/services" element={<ServiceMainFile />} />
 
+        <Route path="/news" element={<News />} />
+        <Route path="/news/:slug" element={<NewsArticle />} />
         <Route path="/newsAndEvents" element={<NewsAndEvents />} />
         <Route path="/event/:id" element={<Event />} />
         {/* <Route path="/enroll" element={<Enroll />} /> */}
