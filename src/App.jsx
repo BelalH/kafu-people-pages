@@ -41,6 +41,7 @@ const VerifyUser = lazy(() => import("./components/admin/VerifyUser"));
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import { CookieConsentProvider } from "./context/CookieConsentProvider";
+import FloatingWhatsApp from "./components/ui/FloatingWhatsApp";
 
 const App = () => {
 
@@ -151,6 +152,7 @@ const App = () => {
 
         </Routes>
         <Footer />
+        <FloatingWhatsApp />
       </CookieConsentProvider>
     </Router>
   );
