@@ -5,7 +5,7 @@ import axios from "axios";
 import { SlCalender } from "react-icons/sl";
 import { CiLocationOn } from "react-icons/ci";
 import AboutEventsImage from "../../assets/images/AboutNewsImage/AboutEvents.svg";
-import { HERO_CONTENT_PT, HERO_FLUSH_CLASS } from "../../constants/layout";
+import PageHero from "../ui/PageHero";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -33,31 +33,19 @@ const Event = () => {
 
   return (
     <>
-      <div
-        className={`relative box-border flex h-[400px] w-full items-center justify-center bg-gray-800 font-inter sm:h-[500px] lg:h-[600px] ${HERO_FLUSH_CLASS} ${HERO_CONTENT_PT}`}
+      <PageHero
+        image={AboutEventsImage}
+        imageAlt="About Our Events"
+        height="h-[400px] sm:h-[500px] lg:h-[600px]"
+        priority
       >
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${AboutEventsImage})`,
-          }}
-          aria-label="Event background image" // Accessibility enhancement
-        ></div>
-
-        {/* Overlay Content */}
-        <div className="relative z-10 text-cWhite text-center px-4 top-32 sm:px-8 lg:px-16 w-full">
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold">
-            About Our Events
-          </h1>
-          <p className="mt-4 text-base sm:text-lg lg:text-xl text-cWhite">
-            Stay tuned for the latest updates and happenings.
-          </p>
-        </div>
-
-        {/* Optional Overlay Effect */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-      </div>
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold">
+          About Our Events
+        </h1>
+        <p className="mt-4 text-base sm:text-lg lg:text-xl">
+          Stay tuned for the latest updates and happenings.
+        </p>
+      </PageHero>
 
       <div className="p-4 sm:p-6 bg-cWhite lg:mx-24 sm:mx-5">
         {/* Heading Section */}

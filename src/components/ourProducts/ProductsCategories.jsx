@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 import Loader from "../Loader";
+import { getCaseByProductId } from "../../data/portfolioCases";
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
@@ -28,6 +30,14 @@ const allProducts = [
     "description": "Empowering independent authors and production companies to create professional audiobooks with cutting-edge AI voice technology.",
     "category": "AI & Agentic Workflows",
     "url": "https://echo3s.io/"
+  },
+  {
+    "product_id": "p009",
+    "image": "/products/Nerohalla.webp",
+    "name": "Nerohalla",
+    "description": "A modern product platform built with Kafu People as development partner — a scalable foundation taken from concept toward launch.",
+    "category": "SaaS & Startup MVPs",
+    "url": "https://nerohalla.com/"
   },
   {
     "product_id": "p002",
@@ -123,11 +133,11 @@ const ProductsCategories = () => {
                     setSelectedCategory(category);
                     setCurrentPage(1);
                   }}
-                  className={`flex-shrink-0 px-4 py-2 my-4 rounded-lg shadow-md text-sm font-medium ${
-                    selectedCategory === category
-                      ? "bg-indigo-600 text-cWhite"
-                      : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                  }`}
+               className={`flex-shrink-0 px-4 py-2 min-h-[44px] my-4 rounded-lg shadow-md text-sm font-medium ${
+                 selectedCategory === category
+                   ? "bg-CPurple text-cWhite"
+                   : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+               }`}
                 >
                   {category}
                 </button>
@@ -175,21 +185,55 @@ const ProductsCategories = () => {
                       <div className="group relative h-48 w-full shrink-0 sm:h-56 md:h-auto md:w-56 lg:w-64 xl:w-72">
                         <img
                           src={`${product.image}`}
-                          alt={""}
+                          alt={product.name}
                           className="w-full h-full object-cover"
                         />
-                        {product?.url && (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="absolute inset-0 bg-black/35 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100" />
-                            <a
-                              href={product.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="relative px-5 py-2.5 rounded-xl bg-indigo-600 text-gray-300 font-extrabold shadow-2xl ring-2 ring-white/90 opacity-0 translate-y-1 transition-all duration-200 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-white"
-                            >
-                              Visit product
-                            </a>
-                          </div>
+                        {(() => {
+                          const caseStudy = getCaseByProductId(product.product_id);
+                          if (!product?.url && !caseStudy) return null;
+                          return (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="absolute inset-0 bg-black/35 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100" />
+                              <div className="relative flex flex-wrap items-center justify-center gap-3 opacity-0 translate-y-1 transition-all duration-200 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto">
+                                {caseStudy ? (
+                                  <>
+                                    <Link
+                                      to={`/portfolio/${caseStudy.slug}`}
+                                      className="px-4 py-2.5 min-h-[44px] rounded-xl bg-CPurple text-white font-extrabold shadow-2xl ring-2 ring-white/90 hover:opacity-90 transition focus:outline-none focus:ring-4 focus:ring-white"
+                                    >
+                                      Case Study
+                                    </Link>
+                                    {product.url && (
+                                      <a
+                                        href={product.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="px-4 py-2.5 min-h-[44px] rounded-xl bg-white text-CPurple font-extrabold shadow-2xl ring-2 ring-white/90 hover:bg-gray-100 transition focus:outline-none focus:ring-4 focus:ring-white"
+                                      >
+                                        Live Site →
+                                      </a>
+                                    )}
+                                  </>
+                                ) : (
+                                  product.url && (
+                                    <a
+                                      href={product.url}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="px-5 py-2.5 min-h-[44px] rounded-xl bg-CPurple text-white font-extrabold shadow-2xl ring-2 ring-white/90 hover:opacity-90 transition focus:outline-none focus:ring-4 focus:ring-white"
+                                    >
+                                      Visit Live Site
+                                    </a>
+                                  )
+                                )}
+                              </div>
+                            </div>
+                          );
+                        })()}
+                        {!getCaseByProductId(product.product_id) && (
+                          <span className="absolute top-2 right-2 rounded-full bg-black/60 px-2.5 py-1 text-xs font-semibold text-white">
+                            Reference
+                          </span>
                         )}
                       </div>
                       <div className="flex min-w-0 flex-1 flex-col justify-center p-4 sm:p-6">
@@ -211,11 +255,11 @@ const ProductsCategories = () => {
                     <button
                       key={index}
                       onClick={() => setCurrentPage(index + 1)}
-                      className={`px-4 py-2 rounded-lg transition-all duration-200 ${
-                        currentPage === index + 1
-                          ? "bg-indigo-600 text-cWhite shadow-lg"
-                          : "bg-textGray text-cWhite hover:bg-indigo-50"
-                      }`}
+                       className={`px-4 py-2 min-h-[44px] rounded-lg transition-all duration-200 ${
+                         currentPage === index + 1
+                           ? "bg-CPurple text-cWhite shadow-lg"
+                            : "bg-textGray text-cWhite hover:bg-primary-dark"
+                       }`}
                     >
                       {index + 1}
                     </button>

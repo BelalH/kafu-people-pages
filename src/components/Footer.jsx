@@ -25,7 +25,7 @@ const linkColumnClass = `${columnClass} flex flex-col items-center`;
 const linkColumnInnerClass =
   "text-left w-full min-w-0 sm:w-max sm:max-w-full";
 const footerGridClass =
-  "grid w-full grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4 xl:gap-8";
+  "grid w-full grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 xl:grid-cols-5 xl:gap-8";
 const headingClass = "text-base sm:text-lg font-bold mb-3 sm:mb-4 text-white";
 const listClass = "space-y-2 text-xs sm:text-sm text-slate-200";
 
@@ -86,6 +86,30 @@ const Footer = () => {
                   Monday to Friday:
                 </span>{" "}
                 9:00 AM – 9:00 PM (CET)
+              </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className={linkColumnClass}>
+            <div className={linkColumnInnerClass}>
+              <h3 className={headingClass}>Quick Links</h3>
+              <ul className={listClass}>
+              <li>
+                <Link
+                  to="/blogs"
+                  className="hover:text-primary-light transition-colors"
+                >
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/news"
+                  className="hover:text-primary-light transition-colors"
+                >
+                  News & Updates
+                </Link>
               </li>
               </ul>
             </div>

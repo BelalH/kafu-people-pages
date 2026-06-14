@@ -34,16 +34,16 @@ const BlogSection = () => {
   ];
 
   return (
-    <Link to={"/blogSection"}>
+    <Link to={"/blogs"}>
       <div className="px-4 sm:px-8 lg:px-24 py-8 font-inter">
         <h2 className="text-3xl font-bold text-cBlack p-4 mb-6 text-center">
-          Our <span className="text-indigo-600">Latest Blog & Articles</span>
+          Our <span className="text-CPurple">Latest Blog & Articles</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {blogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-cWhite rounded-lg shadow-md hover:shadow-CPurple overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg block"
+              className="bg-cWhite rounded-lg shadow-md hover:shadow-CPurple overflow-hidden transform transition-all duration-300 hover:md:scale-105 hover:shadow-lg block"
             >
               <div className="h-40 flex items-center justify-center  overflow-hidden">
                 <img
